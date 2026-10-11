@@ -346,7 +346,7 @@ button{border-color:var(--bd)}button:hover{box-shadow:0 0 24px var(--acc)}
  .nw-panel{min-height:0}
 }
 
-/* ===== Rishabh: three posters (Speaker 02) ===== */
+/* ===== Rishabh: three posters (Speaker 03) ===== */
 .rz{font-size:clamp(.84rem,min(1.1vw,1.95vh),1.3rem);padding:clamp(1rem,3vh,2.2rem) var(--px);display:grid;gap:1em;align-content:start}
 .rz small{font:700 .72em 'Courier Prime',monospace;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
 .rz h2{font:500 clamp(1.7em,3.6vw,2.9em)/1.05 'Oswald',sans-serif;text-transform:uppercase;margin:.15em 0 0}
@@ -383,7 +383,7 @@ button{border-color:var(--bd)}button:hover{box-shadow:0 0 24px var(--acc)}
 .rz3.end .rz-f{opacity:1;transform:rotate(-2deg)}
 @media(max-width:760px){.rz-g{grid-template-columns:1fr 1fr}.rz2{grid-template-columns:1fr}.rz-r{grid-template-columns:1fr;gap:.2em}.rz-r .a{display:none}}
 
-/* ===== Raktim: four posters (Speaker 04) ===== */
+/* ===== Raktim: four posters (Speaker 06) ===== */
 .rk1{background:repeating-conic-gradient(from 0deg at 74% 62%,rgba(212,160,23,.3) 0 6deg,transparent 6deg 12deg),#efe6d2;color:var(--soot);font-family:'PT Sans',Arial,sans-serif;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
 .rk1 h2 em{color:var(--crim)}.rk-lead{font-size:1.15em;margin-top:.6em!important;max-width:24em}
 .rk1-s{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;min-height:clamp(15em,46vh,25em)}
@@ -418,6 +418,197 @@ button{border-color:var(--bd)}button:hover{box-shadow:0 0 24px var(--acc)}
 .rk4 .nd text{fill:#f1e6c8;font:700 13px 'Oswald',sans-serif}.rk4 .arc{transition:stroke-dashoffset 1s}
 .rk4 .ct{fill:var(--gold);font:500 14px 'Oswald',sans-serif;letter-spacing:.2em}.rk4 .c2{fill:#ff8a7a;font:italic 11px Georgia,serif}
 @media(max-width:760px){.rk1{grid-template-columns:1fr}.rk-r{grid-template-columns:1fr}.rk-f{grid-template-columns:1fr 1fr}.rk4{grid-template-columns:1fr;grid-template-areas:"l" "v" "t"}}
+</style>
+<style>
+/* =====================================================================
+   SPEAKER 02 · SAUNAK GHOSH: "When revolutions betray themselves"
+   Sixteen slides in the deck's own style: glass, Playfair, typewriter labels.
+   ===================================================================== */
+.slide.sgs{gap:1.1rem}
+.sg-tag{display:inline-flex;align-items:center;gap:.8em;flex-wrap:wrap;justify-content:center;padding:.45em 1.15em;border:1px solid var(--bd);border-radius:999px;background:rgba(10,8,6,.5);font:400 .74rem 'Special Elite',monospace;letter-spacing:.28em;text-transform:uppercase;color:var(--lb);text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.sg-tag b{font-weight:400;color:#fff;background:var(--acc);padding:.2em .6em;border-radius:999px;letter-spacing:.2em}
+.sg-tag span{color:#fbf3e4}
+.sg-tag i{font-style:normal;opacity:.65;letter-spacing:.15em}
+.sg-spb{position:absolute;right:1.2rem;bottom:calc(1.1rem + env(safe-area-inset-bottom,0px));z-index:6;padding:.4rem .9rem!important}
+.sgs h2{max-width:900px}
+.sg-k{font:400 .74rem 'Special Elite',monospace;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);filter:brightness(1.35)}
+.sg-p{text-align:left;padding:1.15rem 1.35rem}
+.sg-p h3{margin:.25rem 0 .45rem;font:600 1.4rem 'Playfair Display',serif}
+.sg-p p{margin:.35rem 0 0;line-height:1.55;font-size:.98rem}
+.sg-g{display:grid;gap:1rem;width:min(1040px,100%)}
+.sg-g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.sg-g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.sg-g4{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.sg-note{max-width:820px;font-size:clamp(1rem,2vw,1.2rem);line-height:1.6;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+.sg-hint{margin:0;opacity:.7}
+/* build steps (→ / PageDown): elements with data-k appear at step k */
+.sg-st{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.sg-st.in{opacity:1;transform:none}
+/* 01 · opener */
+.sg-op .sg-tail{display:inline}
+/* 02 · timeline */
+.sg-q{font:500 italic clamp(1.15rem,2.6vw,1.6rem)/1.4 'Playfair Display',serif;max-width:760px}
+.sg-tl{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem;width:min(1040px,100%);padding-top:1.4rem;text-align:left}
+.sg-tl::before{content:'';position:absolute;left:0;right:0;top:.45rem;height:2px;background:linear-gradient(90deg,transparent,var(--acc) 8%,var(--acc) 92%,transparent);opacity:.8}
+.sg-tl>div{position:relative}
+.sg-tl>div::before{content:'';position:absolute;top:-1.2rem;left:0;width:12px;height:12px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px rgba(0,0,0,.45),0 0 18px var(--acc)}
+.sg-tl b{display:block;font:900 clamp(1.4rem,2.6vw,2rem)/1 'Playfair Display',serif;color:var(--lb)}
+.sg-tl p{margin:.35rem 0 0;font-size:.92rem;line-height:1.45;text-shadow:0 2px 10px rgba(0,0,0,.9)}
+/* flip cards */
+.sg-cards{display:grid;gap:1rem;width:min(1040px,100%);perspective:1200px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.sg-cards.c3{grid-template-columns:repeat(3,1fr);width:min(900px,100%)}
+.sg-cards .card{height:235px}
+.sg-cards.c3 .card{height:190px}
+.sg-cards .cin p{margin:0;font-size:.9rem;line-height:1.5}
+.sg-cards .cin .sm{font-size:.86rem;line-height:1.45;opacity:.92}
+/* 04 · workers */
+.sg-motto{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin:.55rem 0 .2rem}
+.sg-motto em{font:500 italic 1.08rem 'Playfair Display',serif;color:var(--lb)}
+.sg-cost{display:inline-block;margin-top:.5rem;padding:.2em .6em;border:1px solid var(--acc);font:400 .76rem 'Special Elite',monospace;letter-spacing:.18em;text-transform:uppercase}
+/* 05 · slogan */
+.sg-sl{width:min(820px,100%);padding:1.3rem 1.6rem}
+.sg-sl .line{font:600 clamp(1.5rem,3.6vw,2.5rem)/1.2 'Playfair Display',serif}
+.sg-w{display:inline-grid;vertical-align:bottom}
+.sg-w>*{grid-area:1/1;justify-self:start}
+.sg-w s{text-decoration:none;position:relative;transition:opacity .5s ease 1.1s}
+.sg-w s::after{content:'';position:absolute;left:-4%;right:-4%;top:55%;height:.12em;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .6s ease .2s}
+.sg-w b{font-weight:600;color:var(--acc);filter:brightness(1.3);clip-path:inset(0 100% 0 0);transition:clip-path 1.2s cubic-bezier(.5,0,.3,1) 1.4s}
+.sg-sl.ch .sg-w s::after{transform:scaleX(1)}
+.sg-sl.ch .sg-w s{opacity:0}
+.sg-sl.ch .sg-w b{clip-path:inset(-10% -6% -10% 0)}
+.sg-sl button{margin-top:1rem}
+/* 06 · 11 · comparison rows */
+.sg-cmp{display:grid;gap:.55rem;width:min(980px,100%)}
+.sg-cmp .hd,.sg-cmp .r{display:grid;grid-template-columns:1fr 2.2rem 1fr;align-items:center;gap:.6rem;text-align:left}
+.sg-cmp .hd{font:400 .74rem 'Special Elite',monospace;letter-spacing:.25em;text-transform:uppercase;color:var(--lb);padding:0 1rem}
+.sg-cmp .r{padding:.65rem 1rem;font-size:.98rem;line-height:1.45}
+.sg-cmp .r>i{font-style:normal;text-align:center;color:var(--acc);font-size:1.2rem;filter:brightness(1.3)}
+.sg-cmp .r b{font:600 1.08rem 'Playfair Display',serif}
+/* 07 · hens chain */
+.sg-chain{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:.8rem;width:min(1040px,100%)}
+.sg-chain>i{align-self:center;font:900 2.2rem 'Playfair Display',serif;font-style:normal;color:var(--acc);filter:brightness(1.3)}
+.sg-chain .glass:last-child{border-color:var(--acc)!important}
+/* 09 · 10 · barn wall */
+.sg-wall{width:min(920px,100%);padding:1.4rem 1.8rem;text-align:left;border-radius:3px;background:repeating-linear-gradient(90deg,#1b1410 0 78px,#0c0907 78px 80px),#1b1410;box-shadow:inset 0 0 80px #000,0 30px 80px rgba(0,0,0,.6);font-family:'Special Elite',monospace;color:#efe6d2}
+.sg-wall .r{display:grid;grid-template-columns:2rem 1fr auto;align-items:center;gap:.8rem;padding:.42rem 0;border-bottom:1px dashed rgba(255,255,255,.12);font-size:clamp(.92rem,1.7vw,1.12rem);letter-spacing:.03em}
+.sg-wall .r:last-child{border-bottom:0}
+.sg-wall .n{opacity:.55}
+.sg-stamp{font:700 .78rem 'Courier Prime',monospace;letter-spacing:.2em;text-transform:uppercase;padding:.25em .6em;border:2px solid currentColor;transform:rotate(-4deg) scale(1.6);opacity:0;transition:opacity .35s ease var(--sd,0s),transform .45s cubic-bezier(.3,1.6,.5,1) var(--sd,0s)}
+.sg-stamp.in{opacity:1;transform:rotate(-4deg) scale(1)}
+.sg-stamp.br{color:#ff6b5e}.sg-stamp.am{color:#e9c45a}.sg-stamp.tw{color:#c99bff}
+.sg-chg .r{grid-template-columns:2rem 1fr 1.6rem 1.25fr}
+.sg-chg .hd{display:grid;grid-template-columns:2rem 1fr 1.6rem 1.25fr;gap:.8rem;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;opacity:.6;padding-bottom:.3rem}
+.sg-chg .ar{color:var(--acc);filter:brightness(1.4);text-align:center}
+.sg-chg .old{opacity:.6}
+.sg-chg .new{min-height:1.2em}
+.sg-chg .new b{font-weight:400;display:inline;color:transparent;background:linear-gradient(#f2c552,#f2c552) no-repeat 0 0/0% 100%;-webkit-background-clip:text;background-clip:text;transition:background-size 1.6s cubic-bezier(.4,0,.2,1)}
+.sg-chg .new b.in{background-size:100% 100%}
+/* 13 · warning-sign checklist */
+.sg-ck{display:flex;flex-direction:column;gap:.45rem;margin-top:.6rem}
+.sg-ck button{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;font:400 .98rem Georgia,serif;letter-spacing:0;text-transform:none;padding:.6rem .8rem;background:rgba(0,0,0,.25);border:1px solid var(--bd)}
+.sg-ck button::before{content:'';flex:none;width:1.05rem;height:1.05rem;border:1.5px solid var(--lb);border-radius:2px;transition:background .25s}
+.sg-ck button[aria-pressed=true]{border-color:var(--acc);background:rgba(0,0,0,.4)}
+.sg-ck button[aria-pressed=true]::before{background:var(--acc);border-color:var(--acc);box-shadow:inset 0 0 0 2px rgba(0,0,0,.5)}
+.sg-ck button:hover{background:rgba(0,0,0,.45)}
+.sg-meter{margin-top:.7rem;font:400 .76rem 'Special Elite',monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--lb)}
+.sg-tools p{margin:.6rem 0 0}
+.sg-tools b{font:600 1.08rem 'Playfair Display',serif}
+/* 14 · staircase */
+.sg-stairs{display:grid;grid-template-columns:repeat(5,1fr);align-items:end;gap:.7rem;width:min(1040px,100%)}
+.sg-stairs .glass{text-align:left;padding:1rem 1.1rem;min-height:calc(8.5rem + var(--h)*2.4rem)}
+.sg-stairs .nn{font:900 2.6rem/1 'Playfair Display',serif;color:transparent;-webkit-text-stroke:1px var(--acc)}
+.sg-stairs h3{margin:.35rem 0 .3rem;font:600 1.2rem 'Playfair Display',serif}
+.sg-stairs p{margin:0;font-size:.9rem;line-height:1.45}
+.sg-stairs .glass:last-child{border-color:var(--acc)!important}
+/* 15 · lessons */
+.sg-ico{width:52px;height:52px;color:var(--acc);filter:brightness(1.35) drop-shadow(0 6px 10px rgba(0,0,0,.5))}
+@media(max-width:860px){
+ .sg-spb{top:.7rem;bottom:auto;right:.8rem}
+ .slide.sgs{padding-top:3.4rem}
+ .sg-tl{grid-template-columns:1fr;padding:0 0 0 1.6rem;gap:1rem}
+ .sg-tl::before{left:.35rem;right:auto;top:0;bottom:0;width:2px;height:auto;background:var(--acc)}
+ .sg-tl>div::before{left:-1.6rem;top:.3rem}
+ .sg-chain{grid-template-columns:1fr}
+ .sg-chain>i,.sg-chain>i.in{transform:rotate(90deg);justify-self:center;line-height:1}
+ .sg-stairs{grid-template-columns:1fr}
+ .sg-stairs .glass{min-height:0}
+}
+@media(max-width:600px){
+ .sg-cards.c3{grid-template-columns:repeat(2,1fr)}
+ .sg-cmp .hd{display:none}
+ .sg-cmp .r{grid-template-columns:1fr;gap:.25rem}.sg-cmp .r>i{display:none}.sg-cmp .r>span:last-child{color:var(--lb);padding-left:.8rem;border-left:2px solid var(--acc)}
+ .sg-chg .hd{display:none}
+ .sg-chg .r{grid-template-columns:1.6rem 1fr}.sg-chg .ar,.sg-chg .old{display:none}
+ .sg-wall{padding:1rem 1.1rem}
+}
+/* ---- four-slide version: extra graphics ---- */
+.sg-acc{color:var(--acc)!important;filter:brightness(1.4)}
+.sg-duo{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:1.1rem;width:min(1180px,100%);align-items:stretch}
+.sg-duo .sg-cmp{width:100%;align-content:center}
+.sg-duo .sg-cmp .r{font-size:.95rem;padding:.6rem .9rem}
+.sg-eq{display:flex;flex-direction:column;align-items:center;gap:.4rem;padding:1rem 1.2rem}
+.sg-eq .sg-k{align-self:flex-start}
+.sg-eq svg{width:100%;max-width:440px;height:auto;overflow:visible}
+.sg-eq .tri{fill:none;stroke:var(--acc);stroke-width:1.5;stroke-dasharray:6 6;opacity:0;transition:opacity .8s .6s}
+.sg-eq .lvl{stroke:var(--lb);stroke-width:1.5;stroke-dasharray:4 6;opacity:.6;transition:opacity .6s}
+.sg-eq.pr .tri{opacity:.75}.sg-eq.pr .lvl{opacity:0}
+.sg-eq .an{transition:transform 1.3s cubic-bezier(.5,0,.25,1)}
+.sg-eq .an circle{fill:rgba(255,255,255,.08);stroke:var(--lb);stroke-width:2}
+.sg-eq .an text{fill:#f6f0e6;font:400 12px 'Special Elite',monospace;letter-spacing:.06em;text-anchor:middle}
+.sg-eq.pr .pig circle{fill:var(--acc);stroke:#fff}
+.sg-eq.pr .dog circle{fill:rgba(0,0,0,.6);stroke:var(--acc)}
+.sg-eqc{margin:0;font:500 italic clamp(1rem,1.8vw,1.25rem)/1.4 'Playfair Display',serif;min-height:2.8em;display:flex;align-items:center;text-align:center}
+.sg-eqc b{color:var(--acc);filter:brightness(1.4);font-weight:600}
+.sg-eq .sg-bt{margin-top:.2rem}
+/* heroes: cards plus years-in-power bars */
+.sg-hc .card{height:200px}
+.sg-yrs{width:min(1040px,100%);text-align:left;padding:1rem 1.4rem}
+.sg-yrs .row{display:grid;grid-template-columns:6.5rem 1fr 13rem;align-items:center;gap:.9rem;margin-top:.55rem}
+.sg-yrs .row b{font:600 1.05rem 'Playfair Display',serif}
+.sg-yrs .tr{display:flex;gap:4px;height:16px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
+.sg-yrs .tr i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),rgba(255,255,255,.55));transition:width 1.4s cubic-bezier(.2,.7,.2,1) var(--dl,0s)}
+.sg-yrs .tr i.again{background:repeating-linear-gradient(135deg,var(--acc) 0 6px,rgba(0,0,0,.35) 6px 10px)}
+.on .sg-yrs .tr i{width:var(--w)}
+.sg-yrs .row span{font:400 .78rem 'Special Elite',monospace;letter-spacing:.06em;opacity:.85}
+.sg-yrs .row strong{font:900 1.15rem 'Playfair Display',serif;color:var(--lb);letter-spacing:0}
+.sg-yrs .ax{display:flex;justify-content:space-between;margin:.35rem 13.9rem 0 7.4rem;font:400 .66rem 'Special Elite',monospace;opacity:.55;border-top:1px dashed rgba(255,255,255,.25);padding-top:.25rem}
+/* squealer: tool icons and dial */
+.sg-ico.sm{width:40px;height:40px;flex:none}
+.sg-tool{display:flex;gap:.8rem;align-items:center;margin-top:.7rem}
+.sg-tool p{margin:0;font-size:.98rem;line-height:1.45}
+.sg-tool b{font:600 1.05rem 'Playfair Display',serif}
+.sg-quote{margin-top:1rem;padding:.7rem .9rem;border-left:3px solid var(--acc);background:rgba(0,0,0,.25);font-size:1.02rem;line-height:1.5}
+.sg-wsg{display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:1rem;align-items:center}
+.sg-dial{text-align:center}
+.sg-dial svg{width:100%;height:auto;overflow:visible}
+.sg-dial .bg{fill:none;stroke:rgba(255,255,255,.12);stroke-width:16;stroke-linecap:round}
+.sg-dial .fg{fill:none;stroke:var(--acc);stroke-width:16;stroke-linecap:round;stroke-dasharray:251.3;stroke-dashoffset:251.3;transition:stroke-dashoffset .8s cubic-bezier(.3,1.3,.5,1);filter:drop-shadow(0 0 8px var(--acc))}
+.sg-dial .nd{transform-origin:100px 100px;transform:rotate(-90deg);transition:transform .8s cubic-bezier(.3,1.4,.5,1)}
+.sg-dial .nd line{stroke:#f6f0e6;stroke-width:3;stroke-linecap:round}
+.sg-dial circle{fill:#f6f0e6}
+.sg-dial .sg-meter{margin-top:.3rem;line-height:1.5}
+.sg-dial .sg-meter b{display:block;font:900 1.5rem 'Playfair Display',serif;letter-spacing:0;color:#f6f0e6}
+/* pattern + lessons */
+.sgs .sg-stairs .glass{min-height:calc(6.2rem + var(--h)*1.5rem);padding:.75rem .9rem}
+.sgs .sg-stairs .nn{font-size:2rem}
+.sgs .sg-stairs h3{font-size:1.08rem;margin:.2rem 0}
+.sgs .sg-stairs p{font-size:.84rem}
+.sg-les{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;width:min(1040px,100%)}
+.sg-les .glass{display:flex;gap:.7rem;align-items:center;text-align:left;padding:.7rem .85rem}
+.sg-les h3{margin:0 0 .15rem;font:600 1rem 'Playfair Display',serif}
+.sg-les p{margin:0;font-size:.82rem;line-height:1.4}
+.sg-close{margin:0;font-size:clamp(1.25rem,2.8vw,2rem)!important;max-width:900px}
+@media(max-width:900px){
+ .sg-duo{grid-template-columns:1fr}
+ .sg-les{grid-template-columns:repeat(2,1fr)}
+ .sg-yrs .row{grid-template-columns:5rem 1fr;gap:.2rem .7rem}.sg-yrs .row span{grid-column:2}
+ .sg-yrs .ax{display:none}
+ .sg-wsg{grid-template-columns:1fr}.sg-dial{max-width:200px;margin:0 auto}
+ .sg-hc{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px){.sg-les{grid-template-columns:1fr}.sg-hc .card{height:210px}}
+/* integration: fit the heroes slide on 720p-high screens without scrolling */
+@media(max-height:780px) and (min-width:861px){.slide.sgs:has(.sg-hc)>h2{font-size:clamp(1.5rem,4.4vh,2.4rem)}.sg-hc .card{height:172px}}
 </style>
 </head>
 <body>
@@ -662,7 +853,7 @@ function sayanjeetSlides(add,setStep,SPEECH){
 }
 
 /* =====================================================================
-   SPEAKER 02 · RISHABH - "Words went first"
+   SPEAKER 03 · RISHABH - "Words went first"
    Three posters; → steps through each poster's builds (same engine as Speaker 01).
    Called from the opinions loop below, in the slot of Rishabh's opinion.
    ===================================================================== */
@@ -672,18 +863,18 @@ function rishabhSlides(add,setStep,SPEECH){
  /* 1 · the dictionary */
  const T=[['A readjustment of rations','Rations cut.','Ch. IX'],['Voluntary labour on Sundays','Unpaid work, or half rations.','Ch. VI'],['Brainwork','Milk and apples for the pigs.','Ch. III'],['Taken to the hospital','Sold to the knacker.','Ch. IX']];
  const CAP1=['Tap a notice to translate it.','Squealer never denies the loss. He simply renames it.'];
- const s1=poster(`<div class="sj rz rz1 rv" style="--d:.15s"><div class="mh"><span>The Animal Farm Gazette</span><span>Official · approved by Squealer</span></div><div><small>Speaker 02 · Rishabh · the vocabulary</small><h2>Squealer’s <em>dictionary</em></h2></div><div class="rz-g">${T.map(t=>`<div class="rz-t" tabindex="0" role="button"><div class="rz-i"><div class="f"><small>Official notice</small><b>“${t[0]}”</b></div><div class="b"><small>Translation · ${t[2]}</small><b>${t[1]}</b></div></div></div>`).join('')}</div><p class="rz-cap"></p></div>`,{steps:1,show:n=>{q(s1,'.rz1').classList.toggle('all',!!n);q(s1,'.rz-cap').textContent=CAP1[n]}});
+ const s1=poster(`<div class="sj rz rz1 rv" style="--d:.15s"><div class="mh"><span>The Animal Farm Gazette</span><span>Official · approved by Squealer</span></div><div><small>Speaker 03 · Rishabh · the vocabulary</small><h2>Squealer’s <em>dictionary</em></h2></div><div class="rz-g">${T.map(t=>`<div class="rz-t" tabindex="0" role="button"><div class="rz-i"><div class="f"><small>Official notice</small><b>“${t[0]}”</b></div><div class="b"><small>Translation · ${t[2]}</small><b>${t[1]}</b></div></div></div>`).join('')}</div><p class="rz-cap"></p></div>`,{steps:1,show:n=>{q(s1,'.rz1').classList.toggle('all',!!n);q(s1,'.rz-cap').textContent=CAP1[n]}});
  qa(s1,'.rz-t').forEach(t=>{t.onclick=()=>t.classList.toggle('x');t.onkeydown=e=>{if(e.key=='Enter'){e.stopPropagation();t.classList.toggle('x')}}});
  /* 2 · the argument engine */
  const C=[['Why do the pigs get the milk and apples?','Ch. III','Comrades, we pigs are brainworkers. The whole farm depends on our health, and many of us dislike milk. We drink it for your sake.',[1,2],'…and surely none of you wants Jones back?'],['Wasn’t the windmill Snowball’s idea?','Ch. V','Snowball only stole the plans from Napoleon. It was cunning. Tactics, comrades, tactics!',[0,2],'…do you want Jones back?'],['Aren’t beds against the rule?','Ch. VI','The rule forbids sheets, not beds. A bed is only a place to sleep. You would not rob us of our rest?',[0,2],'…surely none of you wishes to see Jones back?']];
  const TECH=['Reword the rule','Flatter the sacrifice','Summon Jones'];
- const s2=poster(`<div class="sj rz rz2 rv" style="--d:.15s"><div class="h"><small>Speaker 02 · Rishabh · persuasion</small><h2>The answer arrives <em>before</em> the question</h2></div><div class="rz-q">${C.map((c,i)=>`<button data-i="${i}" aria-pressed="false"><small>${c[1]}</small><br>${c[0]}</button>`).join('')}</div><div class="rz-a" aria-live="polite"></div><div class="rz-ch">${TECH.map(t=>`<span>${t}</span>`).join('')}</div><div class="rz-e"><small>The fixed ending (paraphrased)</small>${C.map(c=>`<p><small>${c[1]}</small> ${c[4]}</p>`).join('')}<p class="x2">Different questions. Same fear.</p></div></div>`,{steps:1,enter:()=>ans(-1),show:n=>q(s2,'.rz2').classList.toggle('ch',!!n)});
+ const s2=poster(`<div class="sj rz rz2 rv" style="--d:.15s"><div class="h"><small>Speaker 03 · Rishabh · persuasion</small><h2>The answer arrives <em>before</em> the question</h2></div><div class="rz-q">${C.map((c,i)=>`<button data-i="${i}" aria-pressed="false"><small>${c[1]}</small><br>${c[0]}</button>`).join('')}</div><div class="rz-a" aria-live="polite"></div><div class="rz-ch">${TECH.map(t=>`<span>${t}</span>`).join('')}</div><div class="rz-e"><small>The fixed ending (paraphrased)</small>${C.map(c=>`<p><small>${c[1]}</small> ${c[4]}</p>`).join('')}<p class="x2">Different questions. Same fear.</p></div></div>`,{steps:1,enter:()=>ans(-1),show:n=>q(s2,'.rz2').classList.toggle('ch',!!n)});
  function ans(i){qa(s2,'.rz-q button').forEach((b,k)=>b.setAttribute('aria-pressed',k==i));const c=C[i];qa(s2,'.rz-ch span').forEach((e,k)=>e.classList.toggle('on',!!c&&c[3].includes(k)));
   q(s2,'.rz-a').innerHTML=c?`<small>Squealer, on air · ${c[1]}</small><p class="tx">“${c[2]}”</p><p class="end">${c[4]}</p>`:`<small>Squealer, on air</small><p class="tx dim">Pick a question. Notice how fast he answers.</p>`}
  qa(s2,'.rz-q button').forEach(b=>b.onclick=()=>ans(+b.dataset.i));
  /* 3 · the last word */
  const W=[['“Comrade”','suppressed','Ch. X'],['“Beasts of England”','abolished','Ch. IX'],['“Animal Farm”','“The Manor Farm”','Ch. X'],['The Seven Commandments','one: “more equal than others”','Ch. X']];
- const s3=poster(`<div class="sj rz rz3 rv" style="--d:.15s"><div><small>Speaker 02 · Rishabh · the last word</small><h2>The words went <em>first</em></h2></div><div class="rz-l"><div class="rz-r hd"><small>What the farm said</small><span></span><small>What it says now</small></div>${W.map(w=>`<div class="rz-r"><span class="w">${w[0]}</span><span class="a">→</span><span class="n">${w[1]} <small>${w[2]}</small></span></div>`).join('')}</div><div class="rz-f">Take away the words, and nobody has to win the argument.</div></div>`,{steps:5,show:n=>{qa(s3,'.rz-r:not(.hd)').forEach((r,i)=>r.classList.toggle('x',i<n));q(s3,'.rz3').classList.toggle('end',n>=5)}});
+ const s3=poster(`<div class="sj rz rz3 rv" style="--d:.15s"><div><small>Speaker 03 · Rishabh · the last word</small><h2>The words went <em>first</em></h2></div><div class="rz-l"><div class="rz-r hd"><small>What the farm said</small><span></span><small>What it says now</small></div>${W.map(w=>`<div class="rz-r"><span class="w">${w[0]}</span><span class="a">→</span><span class="n">${w[1]} <small>${w[2]}</small></span></div>`).join('')}</div><div class="rz-f">Take away the words, and nobody has to win the argument.</div></div>`,{steps:5,show:n=>{qa(s3,'.rz-r:not(.hd)').forEach((r,i)=>r.classList.toggle('x',i<n));q(s3,'.rz3').classList.toggle('end',n>=5)}});
  SPEECH.rishabh=`<div class="lbl">Rishabh · about 75 seconds</div>
   <p><b>1 · Dictionary.</b> We’ve just seen Squealer’s numbers lie. But the numbers were the least of it: the real weapon was vocabulary. Squealer never says “we cut your food.” He says “readjustment.” [→] Translate any notice and it’s blunt: rations cut, unpaid work, milk and apples for the pigs, Boxer sold to the knacker. He never denies the loss. He just renames it.</p>
   <p><b>2 · Argument.</b> Now watch what happens when an animal asks a fair question. The answer is ready before the question is finished. Milk and apples? “Brainwork.” The windmill? “Tactics.” The beds? “The rule says sheets.” [→] Look at the endings: Jones, every time. The animals aren’t won over by the argument. They’re frightened of the alternative.</p>
@@ -691,8 +882,8 @@ function rishabhSlides(add,setStep,SPEECH){
 }
 
 /* =====================================================================
-   SPEAKER 04 · RAKTIM - "The most loyal are the first to be sacrificed"
-   Four Boxer posters; → steps through each poster's builds (same engine as Speakers 01 and 02).
+   SPEAKER 06 · RAKTIM - "The most loyal are the first to be sacrificed"
+   Four Boxer posters; → steps through each poster's builds (same engine as Speakers 01 and 03).
    Called from the opinions loop below, in the slot of Raktim's opinion.
    ===================================================================== */
 function raktimSlides(add,setStep,SPEECH){
@@ -700,18 +891,18 @@ function raktimSlides(add,setStep,SPEECH){
  const q=(s,x)=>s.querySelector(x),qa=(s,x)=>[...s.querySelectorAll(x)];
  /* 1 · the load */
  const B=[['Wakes 45 minutes earlier','Ch. III'],['A sixty-hour week','Ch. VI'],['Extra shifts in his spare time','Ch. VI'],['Back to the windmill on a torn hoof','Ch. VIII']];
- const s1=poster(`<div class="sj rz rk1 rv" style="--d:.15s"><div><small>Speaker 04 · Raktim · the load</small><h2>“I will <em>work harder</em>”</h2><p class="rk-lead">Boxer’s answer to everything. Press → to see what it costs him.</p></div><div class="rk1-s"><div class="rk1-st">${B.map(b=>`<div class="rk1-b"><small>${b[1]}</small><b>${b[0]}</b></div>`).join('')}</div><div class="rk1-bm">Boxer</div></div></div>`,{steps:4,show:n=>{qa(s1,'.rk1-b').forEach((e,i)=>e.classList.toggle('on',i<n));q(s1,'.rk1-bm').style.setProperty('--n',n)}});
+ const s1=poster(`<div class="sj rz rk1 rv" style="--d:.15s"><div><small>Speaker 06 · Raktim · the load</small><h2>“I will <em>work harder</em>”</h2><p class="rk-lead">Boxer’s answer to everything. Press → to see what it costs him.</p></div><div class="rk1-s"><div class="rk1-st">${B.map(b=>`<div class="rk1-b"><small>${b[1]}</small><b>${b[0]}</b></div>`).join('')}</div><div class="rk1-bm">Boxer</div></div></div>`,{steps:4,show:n=>{qa(s1,'.rk1-b').forEach((e,i)=>e.classList.toggle('on',i<n));q(s1,'.rk1-bm').style.setProperty('--n',n)}});
  /* 2 · the ring */
  const R=[['Round 1 · Ch. V','Snowball is driven out. Boxer is uneasy: it doesn’t fit what he knows.','Napoleon is always right.'],['Round 2 · Ch. VII','After the executions, he decides it must be some fault in ourselves.','I will work harder.'],['Round 3 · Ch. VII','He remembers Snowball leading at the Cowshed.','If Comrade Napoleon says it, it must be right.']];
- const s2=poster(`<div class="sj rz rk2 rv" style="--d:.15s"><div><small>Speaker 04 · Raktim · the ring</small><h2>Doubt vs <em>slogan</em></h2></div><div class="rk-r">${R.map(r=>`<div class="rk-c"><div class="rd">${r[0]}</div><p class="db">${r[1]}</p><div class="sl">“${r[2]}”</div><div class="ko">K.O.</div></div>`).join('')}</div><p class="rk-sc"></p></div>`,{steps:3,show:n=>{qa(s2,'.rk-c').forEach((e,i)=>e.classList.toggle('on',i<n));q(s2,'.rk-sc').textContent=n<3?`Rounds lost to a slogan: ${n} of 3`:'Doubts that changed anything: 0. He was never allowed to win an argument.'}});
+ const s2=poster(`<div class="sj rz rk2 rv" style="--d:.15s"><div><small>Speaker 06 · Raktim · the ring</small><h2>Doubt vs <em>slogan</em></h2></div><div class="rk-r">${R.map(r=>`<div class="rk-c"><div class="rd">${r[0]}</div><p class="db">${r[1]}</p><div class="sl">“${r[2]}”</div><div class="ko">K.O.</div></div>`).join('')}</div><p class="rk-sc"></p></div>`,{steps:3,show:n=>{qa(s2,'.rk-c').forEach((e,i)=>e.classList.toggle('on',i<n));q(s2,'.rk-sc').textContent=n<3?`Rounds lost to a slogan: ${n} of 3`:'Doubts that changed anything: 0. He was never allowed to win an argument.'}});
  /* 3 · the van */
  const F=[['His lung gives out','Working on the windmill, Boxer finally collapses.'],['The van','Painted on its side: a horse slaughterer and glue boiler.'],['Benjamin reads it aloud','The donkey who never speaks finally shouts.'],['The announcement','Squealer: he died peacefully in hospital.']];
  const VAN=`<svg class="van" viewBox="0 0 120 40" aria-hidden="true"><rect x="2" y="6" width="80" height="24" fill="#333"/><path d="M82 12h22l12 10v8H82z" fill="#555"/><circle cx="24" cy="32" r="6" fill="#111"/><circle cx="96" cy="32" r="6" fill="#111"/><text x="7" y="22" font-size="7" fill="#eee" font-family="Courier Prime,monospace">HORSE SLAUGHTERER</text></svg>`;
- const s3=poster(`<div class="sj rz rk3 rv" style="--d:.15s"><div><small>Speaker 04 · Raktim · chapter IX</small><h2>“Taken to the <em>hospital</em>”</h2></div><div class="rk-f">${F.map((f,i)=>`<div class="rk-fr" data-n="0${i+1}"><small>Ch. IX</small>${i==1?VAN:''}<b>${f[0]}</b><span>${f[1]}</span></div>`).join('')}</div><p class="rk3-w">Meanwhile, the pigs somehow find the money for a case of whisky.</p></div>`,{steps:4,show:n=>{qa(s3,'.rk-fr').forEach((e,i)=>e.classList.toggle('on',i<n));q(s3,'.rk3').classList.toggle('end',n>=4)}});
+ const s3=poster(`<div class="sj rz rk3 rv" style="--d:.15s"><div><small>Speaker 06 · Raktim · chapter IX</small><h2>“Taken to the <em>hospital</em>”</h2></div><div class="rk-f">${F.map((f,i)=>`<div class="rk-fr" data-n="0${i+1}"><small>Ch. IX</small>${i==1?VAN:''}<b>${f[0]}</b><span>${f[1]}</span></div>`).join('')}</div><p class="rk3-w">Meanwhile, the pigs somehow find the money for a case of whisky.</p></div>`,{steps:4,show:n=>{qa(s3,'.rk-fr').forEach((e,i)=>e.classList.toggle('on',i<n));q(s3,'.rk3').classList.toggle('end',n>=4)}});
  /* 4 · the loop */
  const L=['Trust the leader','Work harder, ask less','Blame yourself for every doubt','Use up the strongest','Sell what is left'];
  const P=L.map((_,i)=>{const a=(-90+i*72)*Math.PI/180;return[160+120*Math.cos(a),160+120*Math.sin(a)]});
- const s4=poster(`<div class="sj rz rk4 rv" style="--d:.15s"><div class="rk4-l"><small>Speaker 04 · Raktim · the loop</small><h2>A system that <em>feeds on devotion</em></h2><ol>${L.map(l=>`<li>${l}</li>`).join('')}</ol></div><svg class="rk4-v" viewBox="0 0 320 320" aria-hidden="true"><circle cx="160" cy="160" r="120" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="3" stroke-dasharray="4 8"/><circle class="arc" cx="160" cy="160" r="120" fill="none" stroke="#c8402f" stroke-width="5" stroke-dasharray="754" stroke-dashoffset="754" transform="rotate(-90 160 160)"/>${P.map((p,i)=>`<g class="nd"><circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="17"/><text x="${p[0].toFixed(1)}" y="${(p[1]+5).toFixed(1)}" text-anchor="middle">${i+1}</text></g>`).join('')}<text class="ct" x="160" y="156" text-anchor="middle">DEVOTION</text><text class="c2" x="160" y="178" text-anchor="middle"></text></svg><p class="rk4-t">Devotion without questioning is exactly what an unjust system feeds on.</p></div>`,{steps:5,show:n=>{qa(s4,'li').forEach((e,i)=>e.classList.toggle('on',i<n));qa(s4,'.nd').forEach((e,i)=>e.classList.toggle('on',i<n));q(s4,'.arc').style.strokeDashoffset=754*(1-n/5);q(s4,'.c2').textContent=n>=5?'…needs the next Boxer':''}});
+ const s4=poster(`<div class="sj rz rk4 rv" style="--d:.15s"><div class="rk4-l"><small>Speaker 06 · Raktim · the loop</small><h2>A system that <em>feeds on devotion</em></h2><ol>${L.map(l=>`<li>${l}</li>`).join('')}</ol></div><svg class="rk4-v" viewBox="0 0 320 320" aria-hidden="true"><circle cx="160" cy="160" r="120" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="3" stroke-dasharray="4 8"/><circle class="arc" cx="160" cy="160" r="120" fill="none" stroke="#c8402f" stroke-width="5" stroke-dasharray="754" stroke-dashoffset="754" transform="rotate(-90 160 160)"/>${P.map((p,i)=>`<g class="nd"><circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="17"/><text x="${p[0].toFixed(1)}" y="${(p[1]+5).toFixed(1)}" text-anchor="middle">${i+1}</text></g>`).join('')}<text class="ct" x="160" y="156" text-anchor="middle">DEVOTION</text><text class="c2" x="160" y="178" text-anchor="middle"></text></svg><p class="rk4-t">Devotion without questioning is exactly what an unjust system feeds on.</p></div>`,{steps:5,show:n=>{qa(s4,'li').forEach((e,i)=>e.classList.toggle('on',i<n));qa(s4,'.nd').forEach((e,i)=>e.classList.toggle('on',i<n));q(s4,'.arc').style.strokeDashoffset=754*(1-n/5);q(s4,'.c2').textContent=n>=5?'…needs the next Boxer':''}});
  SPEECH.raktim=`<div class="lbl">Raktim · about 90 seconds</div>
   <p><b>1 · The load.</b> Boxer is the strongest animal on the farm, and he has one answer to everything: “I will work harder.” [→] He wakes three-quarters of an hour earlier. [→] Then a sixty-hour week. [→] Then extra shifts in his spare time. [→] Then a torn hoof, and he’s back at the windmill. Look at what he carries, and what he is given back: a slogan.</p>
   <p><b>2 · The ring.</b> And when Boxer doubts, the doubt never wins a round. Snowball is driven out and Boxer is uneasy. [→] Round one goes to “Napoleon is always right.” After the executions he decides it must be some fault in ourselves. [→] Round two: “I will work harder.” He remembers Snowball at the Cowshed. [→] Round three: “If Comrade Napoleon says it, it must be right.” He never lost an argument, because he was never allowed to have one.</p>
@@ -720,14 +911,120 @@ function raktimSlides(add,setStep,SPEECH){
 }
 </script>
 <script>
+/* =====================================================================
+   SPEAKER 02 · SAUNAK GHOSH: "When revolutions betray themselves"
+   Four dense slides, straight after Sayanjeet's four posters.
+   → (or a clicker) plays each slide's build steps before moving on.
+   Each slide's "Show speech" button opens Saunak's speaking notes.
+   ===================================================================== */
+function saunakSlides(add,setStep,SPEECH){
+ const N=4,NAME='Saunak Ghosh';let k=0;
+ const q=(s,x)=>s.querySelector(x),qa=(s,x)=>[...s.querySelectorAll(x)];
+ /* elements with data-k="n" are shown once the slide reaches build step n */
+ const ks=(s,n)=>qa(s,'[data-k]').forEach(e=>e.classList.toggle('in',+e.dataset.k<=n));
+ const steps=(n,extra)=>({steps:n,show(i){ks(this.s,i);if(extra)extra(this.s,i)}});
+ const NOTES=[
+  '<p>Orwell gives us the line: “All animals are equal, but some animals are more equal than others.” So how did one become the other?</p><p>Animalism is the book’s version of Marxist ideals: Old Major’s dream is Marx’s classless society, and the animals owning the farm is collective ownership. The key point: the pigs do not abandon the ideology, they twist it. [→] Equality on paper becomes a pyramid in practice, with the pigs on top and the dogs guarding them.</p><p>Debate is abolished first, which removes the animals’ only way to question the pigs. Orwell attacks the betrayal of the ideal, not the ideal itself.</p>',
+  '<p>This is my special factor. The pattern is old and it repeats: a hero leads the fight against an unjust ruler, then refuses to give up power. (Tap each hero to flip.)</p><p>Four documented examples, from different centuries and continents. The bars show how long each one held on: Mugabe for thirty-seven years. Be ready to cite sources in Q&amp;A, for example Freedom House reports on Nicaragua and Zimbabwe. Deliberately no living politicians from our own country: the point is the pattern, and the audience can apply it themselves.</p>',
+  '<p>Squealer did not need to be believed, he only needed to be hard to disprove. Today deepfakes, echo chambers and bot armies do the same job at scale.</p><p>Give the audience the checklist on the right (tap to tick, the dial rises) and let them apply it to any country or leader themselves. Judge any leader by the evidence, not the label. Neutral sources that track these trends: Freedom House and the V-Dem democracy indices.</p>',
+  '<p>This is the book’s argument in five steps. [→ ×4] No single step looks like a coup: every one comes with a reasonable explanation. That is why unchecked power is dangerous. It does not arrive, it accumulates.</p><p>[→] So what stops it? Checks and balances, critical thinking, the courage to speak, and a protected record: the four things the animals did not have. Benjamin could read the truth and said nothing. His silence was a choice. So is ours.</p><p>Close on the question: who are the pigs in our world, and what are we doing about them? Then hand over to the rest of the team.</p>'];
+ const sl=(h,o={})=>{const i=++k;
+  SPEECH['saunak'+i]=`<div class="lbl">${NAME} · slide ${i} of ${N}</div>${NOTES[i-1]}`;
+  const s=add(`<div class="sg-tag rv"><b>Speaker 02</b><span>${NAME}</span><i>${String(i).padStart(2,'0')} / ${String(N).padStart(2,'0')}</i></div>${h}<button class="spb sg-spb" data-sp="saunak${i}">Show speech</button>`,0,{...o,sg:1});
+  s.classList.add('sgs');return s};
+ const card=(f,b,d)=>`<div class="card rv" style="--d:${d}s"><div class="cin"><div>${f}</div><div class="bk">${b}</div></div></div>`;
+ const flips=s=>qa(s,'.card').forEach(d=>{d.onclick=()=>d.classList.toggle('x');
+  d.onmousemove=e=>{if(d.classList.contains('x'))return;const r=d.getBoundingClientRect();d.style.transform=`rotateY(${((e.clientX-r.x)/r.width-.5)*18}deg) rotateX(${-((e.clientY-r.y)/r.height-.5)*18}deg)`};
+  d.onmouseleave=()=>d.style.transform=''});
+ const ICON={
+  scales:'<path d="M32 8v46M18 56h28M10 18h44"/><path d="M10 18 3 36h14zM54 18l-7 18h14z"/><path d="M3 36a7 5 0 0 0 14 0M47 36a7 5 0 0 0 14 0"/>',
+  lens:'<circle cx="27" cy="27" r="16"/><path d="M39 39l16 16"/><path d="M20 27h14"/>',
+  voice:'<path d="M8 12h48v30H30L17 53V42H8z"/><path d="M18 23h28M18 31h18"/>',
+  book:'<path d="M14 9h32a6 6 0 0 1 6 6v40H20a6 6 0 0 1-6-6z"/><path d="M14 49a6 6 0 0 1 6-6h32M24 19h18M24 27h12"/>',
+  mask:'<path d="M12 14c8-4 32-4 40 0v14c0 14-10 24-20 26C22 52 12 42 12 28z"/><path d="M21 27c3-2 7-2 9 0M34 27c3-2 7-2 9 0M24 40c5 4 11 4 16 0"/><path d="M6 6l52 52" stroke-dasharray="4 5"/>',
+  echo:'<circle cx="32" cy="32" r="5"/><path d="M22 22a14 14 0 0 0 0 20M42 22a14 14 0 0 1 0 20M14 14a25 25 0 0 0 0 36M50 14a25 25 0 0 1 0 36"/>',
+  bot:'<rect x="12" y="20" width="40" height="30" rx="6"/><circle cx="24" cy="34" r="4"/><circle cx="40" cy="34" r="4"/><path d="M32 20v-9M28 11h8M26 44h12M6 31v8M58 31v8"/>'};
+ const ico=(n,c='sg-ico')=>`<svg class="${c}" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n]}</svg>`;
+
+ /* ---------- 01 · animalism and communism, with the equality pyramid ---------- */
+ const ISM=[['Old Major’s dream of a farm without humans','Marx’s vision of a classless society'],['“All animals are equal”','Equality of all workers'],['The animals own the farm together','Collective ownership of the means of production'],['Pigs take the “brain work” and the privileges','A Party elite ruling in the people’s name'],['Sunday meetings and debates are abolished','Soviet councils hollowed out by the Party']];
+ /* who stands where: on paper (one level line) and in practice (a pyramid) */
+ const FARM=[['Napoleon','pig',[45,150],[210,58]],['Dog','dog',[100,150],[150,138]],['Dog','dog',[155,150],[270,138]],['Boxer','',[210,150],[90,222]],['Clover','',[265,150],[170,222]],['Sheep','',[320,150],[250,222]],['Hens','',[375,150],[330,222]]];
+ const s1=sl(`<div class="lbl rv">Saunak’s opinion · When revolutions betray themselves</div><h2 class="rv" style="--d:.2s">Animalism and Communism</h2>
+  <div class="sg-duo">
+   <div class="sg-cmp"><div class="hd rv" style="--d:.3s"><span>On Animal Farm</span><span></span><span>In Marxist theory and the USSR</span></div>
+   ${ISM.map((r,i)=>`<div class="glass r rv" style="--d:${.4+i*.12}s"><span>${r[0]}</span><i>⟷</i><span>${r[1]}</span></div>`).join('')}</div>
+   <div class="glass sg-eq rv" style="--d:.6s">
+    <div class="sg-k sg-eqk">On paper</div>
+    <svg viewBox="0 0 420 270" aria-label="Seven animals standing level, then rearranged into a pyramid with Napoleon on top">
+     <path class="tri" d="M210 20 L400 258 L20 258 Z"/>
+     <line class="lvl" x1="20" y1="150" x2="400" y2="150"/>
+     ${FARM.map((a,i)=>`<g class="an ${a[1]}" data-a="${a[2]}" data-b="${a[3]}"><circle r="${a[1]=='pig'?22:17}"/><text y="${a[1]=='pig'?40:34}">${a[0]}</text></g>`).join('')}
+    </svg>
+    <p class="sg-eqc">“All animals are equal.”</p>
+    <button class="sg-bt">Show the practice</button>
+   </div>
+  </div>
+  <p class="sg-note rv" style="--d:1.2s;margin:0"><em class="q">Orwell attacks the betrayal of the ideal, not the ideal itself.</em></p>`,
+  steps(1,(s,n)=>{const p=n>=1,eq=q(s,'.sg-eq');eq.classList.toggle('pr',p);
+   qa(s,'.sg-eq .an').forEach(g=>{const [x,y]=(p?g.dataset.b:g.dataset.a).split(',');g.style.transform=`translate(${x}px,${y}px)`});
+   q(s,'.sg-eqk').textContent=p?'In practice':'On paper';
+   q(s,'.sg-eqc').innerHTML=p?'<span>“…but some animals are <b>more equal</b> than others.”</span>':'<span>“All animals are equal.”</span>';
+   q(s,'.sg-eq .sg-bt').textContent=p?'Back to the dream':'Show the practice'}));
+ q(s1,'.sg-eq .sg-bt').onclick=()=>setStep(s1,q(s1,'.sg-eq').classList.contains('pr')?0:1);
+
+ /* ---------- 02 · heroes become tyrants, with years in power ---------- */
+ const HER=[['France, 1799','Napoleon Bonaparte','A general of the French Revolution.','Crowned himself Emperor in 1804.'],['USSR, 1920s','Joseph Stalin','A Bolshevik revolutionary.','Became the dictator of the Soviet Union.'],['Zimbabwe, 1980','Robert Mugabe','Zimbabwe’s liberation leader.','In power from 1980 until 2017.'],['Nicaragua, 1979','Daniel Ortega','A Sandinista revolutionary.','President since 2007, criticised for curbing the press and opposition.']];
+ /* [name, label, segments in years] — bar scale is 40 years */
+ const YRS=[['Napoleon','1799–1815',[16]],['Stalin','c.1924–1953',[29]],['Mugabe','1980–2017',[37]],['Ortega','1979–90, 2007–today',[11,19]]];
+ const s2=sl(`<div class="lbl rv">Special factor · Relevance today</div><h2 class="rv" style="--d:.2s">Heroes of One Revolution Become the Next Tyrants</h2>
+  <div class="sg-cards sg-hc">${HER.map((h,i)=>card(`<div class="lbl">${h[0]}</div><h2 style="font-size:1.4rem">${h[1]}</h2><div class="lbl sg-acc">The hero</div><p>${h[2]}</p>`,`<div class="lbl sg-acc">What they became</div><h2 style="font-size:1.25rem">${h[1]}</h2><p>${h[3]}</p>`,.4+i*.12)).join('')}</div>
+  <div class="glass sg-yrs rv" style="--d:.9s"><div class="sg-k">Years holding power</div>
+   ${YRS.map((y,i)=>{const t=y[2].reduce((a,b)=>a+b,0);return `<div class="row"><b>${y[0]}</b><div class="tr">${y[2].map((v,j)=>`<i style="--w:${v/40*100}%;--dl:${1.1+i*.2+j*.3}s"${j?' class="again"':''}></i>`).join('')}</div><span><strong>${t}</strong> yrs · ${y[1]}</span></div>`}).join('')}
+   <div class="ax"><span>0</span><span>10</span><span>20</span><span>30</span><span>40 years</span></div>
+  </div>
+  <p class="lbl sg-hint rv" style="--d:1.3s">Tap each hero to see what they became</p>`,{enter:o=>qa(o.s,'.card.x').forEach(c=>c.classList.remove('x'))});flips(s2);
+
+ /* ---------- 03 · today's squealer, with a warning dial ---------- */
+ const TOOLS=[['mask','Deepfakes and fake news.','Any fact can be faked, and any fake can be denied.'],['echo','Echo chambers.','Algorithms feed each of us our own version of the truth.'],['bot','Bot armies.','Today’s sheep: loud slogans that drown out real debate.']];
+ const SIG=['Scapegoating a permanent Snowball','Term limits removed or ignored','A silenced or captured press','Courts and watchdogs sidelined','History rewritten to suit the leader'];
+ const LVL=['Calm','Watch','Rising','High','Severe','Squealer in charge'];
+ const dial=s=>{const n=qa(s,'.sg-ck [aria-pressed=true]').length,f=n/SIG.length;
+  q(s,'.sg-dial .fg').style.strokeDashoffset=251.3*(1-f);q(s,'.sg-dial .nd').style.transform=`rotate(${-90+180*f}deg)`;
+  q(s,'.sg-meter').innerHTML=`<b>${n} / ${SIG.length}</b> signs · ${LVL[n]}`};
+ const s3=sl(`<div class="lbl rv">Relevance today</div><h2 class="rv" style="--d:.2s">Today’s Squealer</h2>
+  <div class="sg-g sg-g2">
+   <div class="glass sg-p rv" style="--d:.4s"><div class="sg-k">Modern tools of propaganda</div>
+    ${TOOLS.map(t=>`<div class="sg-tool">${ico(t[0],'sg-ico sm')}<p><b>${t[1]}</b> ${t[2]}</p></div>`).join('')}
+    <div class="sg-quote"><em class="q">Squealer did not need to be believed. He only needed to be hard to disprove.</em></div></div>
+   <div class="glass sg-p rv" style="--d:.6s"><div class="sg-k">Warning signs of unchecked power</div>
+    <div class="sg-wsg"><div class="sg-ck">${SIG.map(x=>`<button aria-pressed="false">${x}</button>`).join('')}</div>
+    <div class="sg-dial"><svg viewBox="0 0 200 118" aria-hidden="true"><path class="bg" d="M20 100 A80 80 0 0 1 180 100"/><path class="fg" d="M20 100 A80 80 0 0 1 180 100"/><g class="nd"><line x1="100" y1="100" x2="100" y2="34"/></g><circle cx="100" cy="100" r="7"/></svg><div class="sg-meter"></div></div></div></div>
+  </div>
+  <p class="sg-note rv" style="--d:.9s;margin:0"><em class="q">Judge any leader by the evidence, not the label.</em></p>`,
+  {enter:o=>{qa(o.s,'.sg-ck button').forEach(b=>b.setAttribute('aria-pressed','false'));dial(o.s)}});
+ qa(s3,'.sg-ck button').forEach(b=>b.onclick=()=>{b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!='true');dial(s3)});
+
+ /* ---------- 04 · the pattern of power, what stops it, and the closing question ---------- */
+ const PAT=[['Noble cause','A shared enemy and a shared hope.'],['Privileges','“For the common good”: the pigs take the milk and apples.'],['Rivals removed','Snowball is driven out; propaganda fills the gap.'],['Rules rewritten','Commandments amended, dissent silenced.'],['New masters','The pigs become the humans they overthrew.']];
+ const LES=[['scales','Checks and balances','Courts, term limits, a free press.'],['lens','Think critically','Ask who benefits. Check the source.'],['voice','Speak up','Benjamin read the truth and said nothing.'],['book','Protect the record','History must not be quietly rewritten.']];
+ sl(`<div class="lbl rv">How power corrupts, and what stops it</div><h2 class="rv" style="--d:.2s">The Pattern of Power</h2>
+  <div class="sg-stairs">${PAT.map((p,i)=>`<div class="glass ${i?'sg-st':'rv'}" ${i?`data-k="${i}"`:''} style="--h:${i};${i?'':'--d:.4s'}"><div class="nn">${i+1}</div><h3>${p[0]}</h3><p>${p[1]}</p></div>`).join('')}</div>
+  <p class="sg-note sg-st" data-k="4" style="margin:0;transition-delay:.6s"><em class="q">Each step looks reasonable alone. Together, they are tyranny.</em></p>
+  <div class="sg-les">${LES.map((l,i)=>`<div class="glass sg-st" data-k="5" style="transition-delay:${i*.15}s">${ico(l[0],'sg-ico sm')}<div><h3>${l[1]}</h3><p>${l[2]}</p></div></div>`).join('')}</div>
+  <h2 class="sg-st sg-close" data-k="5" style="transition-delay:.8s"><em class="q">Who are the pigs in our world, and what are we doing about them?</em></h2>`,steps(5));
+}
+</script>
+<script>
 /* ===== EDIT THE TEAM'S OPINIONS HERE ===== */
 /* Speaker 01, Sayanjeet, opens the presentation: see sayanjeetSlides() above. */
 const OPENER='Sayanjeet';
+/* Speaker 02, Saunak Ghosh, follows straight after: see saunakSlides() above. */
+const SECOND='Saunak';
 const people=[
  {n:'Rishabh',t:'Propaganda works because language can be rewritten.',o:'The most frightening thing in Animal Farm is not the violence but Squealer rewriting the Commandments overnight. Once the animals cannot trust their own memory, the pigs no longer need to argue; they only need to repeat.'},
  {n:'Yash',t:'A revolution is only as good as what follows it.',o:'Old Major\u2019s dream was sincere, and that is the tragedy. Orwell shows that an ideal without safeguards is a gift to whoever is clever enough to inherit it.'},
  {n:'Vaibhav',t:'Equality dies by small exceptions.',o:'Nobody abolishes equality in a day. A little milk, a few apples, a bed with sheets: each change sounds reasonable, until \u201Cequal\u201D quietly comes to mean \u201Csome are more equal than others\u201D.'},
- {n:'Shaunak',t:'Fear is a system of government.',o:'Napoleon\u2019s dogs show that power needs force to hold, and the animals\u2019 silence shows how quickly fear teaches obedience. A leader who cannot be questioned will eventually stop being a servant of the people.'},
  {n:'Raktim',t:'The most loyal are the first to be sacrificed.',o:'Boxer gives everything and is sold for whisky money. For me his fate is the cruellest part: devotion without questioning is exactly what an unjust system feeds on.'}
 ];
 /* ===== SOURCES (shown on the last slide) =====
@@ -735,6 +1032,7 @@ const people=[
 const REFS=[
  'George Orwell, <i>Animal Farm: A Fairy Story</i>. London: Secker &amp; Warburg, 1945. All quotations on these slides are from the novel; chapters are cited where it matters.',
  'Sayanjeet, \u201CAnimal Farm \u2014 George Orwell\u201D (book review, posted 21 September 2026), and the 34 classmate comments on it (C01\u2013C34), as analysed in Sayanjeet’s Response Log, Network Analysis and Critical Reflection. Comment quotations keep the commenters\u2019 wording.',
+ 'Freedom House, <i>Freedom in the World</i> country reports on Nicaragua and Zimbabwe, and the V-Dem Institute\u2019s democracy indices (background for Saunak\u2019s \u201CHeroes become tyrants\u201D and \u201CToday\u2019s Squealer\u201D slides).',
  '3D countryside built with three.js r128 (MIT licence). Typefaces from Google Fonts.'
 ];
 const cards=[['Napoleon','The Dictator','Stalin','Seizes power with trained dogs and rules by fear.'],['Snowball','The Idealist','Trotsky','Planner of the windmill, then exiled and blamed for everything.'],['Boxer','The Labourer','The working class','Believes in hard work and trust. Is betrayed in the end.'],['Squealer','The Voice','State propaganda','Turns every lie into a statistic and every defeat into a victory.']];
@@ -744,8 +1042,9 @@ const SPEECH={};document.body.insertAdjacentHTML('beforeend','<div id="lb"><img 
 /* add(html, mood, {enter, steps, show}) - enter() runs each time the slide is shown;
    steps/show(n) give a slide click-through builds driven by → / PageDown before moving on */
 const add=(h,mood,o={})=>{const s=document.createElement('section');s.className='slide';s.innerHTML=h;deck.appendChild(s);S.push({s,mood,step:0,...o});return s};
-add(`<div class="lbl rv" style="--d:.3s">An English presentation</div><h1 class="rv" style="--d:.6s">ANIMAL FARM</h1><div class="rule"></div><p class="sub rv" style="--d:1s"><em class="q">A Fairy Story</em> that became a warning.</p><p class="lbl rv members" style="--d:1.4s">${[OPENER,...people.map(p=>p.n)].join(' \u00B7 ')}</p>`,0);
+add(`<div class="lbl rv" style="--d:.3s">An English presentation</div><h1 class="rv" style="--d:.6s">ANIMAL FARM</h1><div class="rule"></div><p class="sub rv" style="--d:1s"><em class="q">A Fairy Story</em> that became a warning.</p><p class="lbl rv members" style="--d:1.4s">${[OPENER,SECOND,...people.map(p=>p.n)].join(' \u00B7 ')}</p>`,0);
 sayanjeetSlides(add,setStep,SPEECH);
+saunakSlides(add,setStep,SPEECH);
 add(`<div class="lbl rv">Setting the scene</div><h2 class="rv" style="--d:.2s">One Farm. One Warning.</h2><div class="tl"><div class="glass rv" style="--d:.4s"><div class="lbl">1945</div><p>George Orwell publishes Animal Farm as the Second World War comes to an end.</p></div><div class="glass rv" style="--d:.6s"><div class="lbl">Allegory</div><p>Every animal, event and slogan stands for something in the Russian Revolution.</p></div><div class="glass rv" style="--d:.8s"><div class="lbl">Satire</div><p>A simple farmyard fable that exposes how power corrupts and ideals are betrayed.</p></div></div>`,0);
 add(`<div class="lbl rv">Chapter I</div><h2 class="rv" style="--d:.2s">Old Major\u2019s Dream</h2><div class="glass sub rv" style="--d:.4s;min-height:9.5em;width:min(640px,100%)"><em class="q" id="tw"></em></div><p class="lbl rv" style="--d:.8s">A utopia built on one idea: nobody should live off another\u2019s labour.</p>`,.08,{enter:type});
 add(`<div class="lbl rv">Chapters II\u2013IV</div><h2 class="rv" style="--d:.2s">The Rebellion</h2><div class="tl"><div class="glass rv" style="--d:.4s"><div class="lbl">Neglect</div><p>Mr Jones drinks, stops caring, and forgets to feed the animals.</p></div><div class="glass rv" style="--d:.7s"><div class="lbl">Revolt</div><p>Starving, the animals drive Jones and his men off the farm.</p></div><div class="glass rv" style="--d:1s"><div class="lbl">New order</div><p>Manor Farm becomes Animal Farm and the Seven Commandments go up on the barn wall.</p></div></div>`,0);
@@ -763,10 +1062,10 @@ function yashSlides(){
  const lb=document.getElementById('lb');
  s1.querySelectorAll('.sc').forEach(d=>{d.onmousemove=e=>{const r=d.getBoundingClientRect();d.style.transform=`rotateY(${((e.clientX-r.x)/r.width-.5)*16}deg) rotateX(${-((e.clientY-r.y)/r.height-.5)*16}deg)`};d.onmouseleave=()=>d.style.transform='';d.onclick=()=>{lb.firstElementChild.src=d.querySelector('img').src;lb.classList.add('on')}});
 }
-people.forEach((p,i)=>p.n=='Yash'?yashSlides():p.n=='Rishabh'?rishabhSlides(add,setStep,SPEECH):p.n=='Raktim'?raktimSlides(add,setStep,SPEECH):add(`<div class="op"><div class="no rv">${String(i+2).padStart(2,'0')}</div><div><div class="lbl rv" style="--d:.2s">${p.n}\u2019s opinion</div><h2 class="rv" style="--d:.4s;margin:.6rem 0 1rem">${p.t}</h2><div class="rule" style="margin-bottom:1rem"></div><p class="sub rv" style="--d:.8s;margin:0">${p.o}</p></div></div>`,.65+i*.06));
+people.forEach((p,i)=>p.n=='Yash'?yashSlides():p.n=='Rishabh'?rishabhSlides(add,setStep,SPEECH):p.n=='Raktim'?raktimSlides(add,setStep,SPEECH):add(`<div class="op"><div class="no rv">${String(i+3).padStart(2,'0')}</div><div><div class="lbl rv" style="--d:.2s">${p.n}\u2019s opinion</div><h2 class="rv" style="--d:.4s;margin:.6rem 0 1rem">${p.t}</h2><div class="rule" style="margin-bottom:1rem"></div><p class="sub rv" style="--d:.8s;margin:0">${p.o}</p></div></div>`,.65+i*.06));
 add(`<div class="lbl rv">The final scene</div><h2 class="rv" style="--d:.2s">From Pig to Man</h2><div class="ringw rv" style="--d:.4s"><div id="coin"><div>PIG</div><div class="m">MAN</div></div></div><input type="range" id="mo" min="0" max="100" value="0" class="rv" style="--d:.6s"><p class="sub rv" style="--d:.8s" id="ml">Watching through the farmhouse window, the animals can no longer tell which is which.</p>`,0);
 add(`<div class="lbl rv">Conclusion</div><h2 class="rv" style="--d:.3s;max-width:800px"><em class="q">\u201CAll animals are equal, but some animals are more equal than others.\u201D</em></h2><div class="rule"></div><p class="sub rv" style="--d:1.2s">Power rewrites the rules. Memory and questions are what keep us free.</p><p class="lbl rv" style="--d:1.6s">Thank you</p>`,1);
-add(`<div class="lbl rv">Sources</div><h2 class="rv" style="--d:.2s">References</h2><div class="glass refs rv" style="--d:.4s"><ol>${REFS.map(r=>`<li>${r}</li>`).join('')}</ol></div><p class="lbl rv members" style="--d:.8s">${[OPENER,...people.map(p=>p.n)].join(' \u00B7 ')}</p>`,1);
+add(`<div class="lbl rv">Sources</div><h2 class="rv" style="--d:.2s">References</h2><div class="glass refs rv" style="--d:.4s"><ol>${REFS.map(r=>`<li>${r}</li>`).join('')}</ol></div><p class="lbl rv members" style="--d:.8s">${[OPENER,SECOND,...people.map(p=>p.n)].join(' \u00B7 ')}</p>`,1);
 
 S.forEach((o,i)=>o.mood=i/(S.length-1));
 /* ===== navigation ===== */

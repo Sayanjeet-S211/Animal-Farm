@@ -20,14 +20,15 @@ Each speaker's script opens with **Show speech**.
 
 1. Title, with group members
 2. **Speaker 01 · Sayanjeet, "Who holds the paintbrush?"**: four interactive posters (agitprop, barn wall, dossier, reader-response network)
-3. Setting the scene → Old Major → Rebellion → Commandments → characters → allegory → windmill → Squealer's figures → themes
-4. Opinions: Rishabh, Yash (2 slides), Vaibhav, Shaunak, Raktim
-5. From Pig to Man → Conclusion → References
+3. **Speaker 02 · Saunak, "When revolutions betray themselves"**: Animalism and Communism · heroes become tyrants · today's Squealer · the pattern of power
+4. Setting the scene → Old Major → Rebellion → Commandments → allegory → Squealer's figures
+5. Speaker 03 · Rishabh (three posters) → Speaker 04 · Yash (two slides) → Speaker 05 · Vaibhav → Speaker 06 · Raktim (four posters)
+6. From Pig to Man → Conclusion → References
 
 ## Editing
 
 - **Opinions**: the `people` array at the top of the main `<script>`.
-- **Sayanjeet's section**: `sayanjeetSlides()` in its own `<script>` block, with its styles in the second `<style>` block.
+- **Speaker sections**: `sayanjeetSlides()`, `rishabhSlides()`, `raktimSlides()` and `saunakSlides()`, each in a `<script>` block before the main script, with their styles in the later `<style>` blocks. They are called from the main script in speaking order.
 - **References**: the `REFS` array. Add a credit for every image used, e.g. the illustrations in Yash's slides.
 
 The 3D countryside (three.js) and the fonts load from the internet. Offline, the slides still work on a plain dark background with fallback fonts.
