@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Animal Farm – A Warning in Seven Commandments</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,900;1,500&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,900;1,500&family=Special+Elite&family=Bebas+Neue&family=Oswald:wght@500;600&family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Black+Ops+One&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Courier+Prime:wght@400;700&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
 :root{--txt:#f6f0e6;--acc:#c8402f;--gl:rgba(14,12,10,.58);--bd:rgba(255,255,255,.16);--lb:rgb(242,230,208);--vg:rgba(0,0,0,.65)}
@@ -18,7 +19,7 @@ html,body{margin:0;height:100%;overflow:hidden;background:#1a1510;color:var(--tx
 .slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:1.4rem;padding:2rem 2rem 5rem;text-align:center;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(30px) scale(.98);filter:blur(10px);transition:opacity 1s ease,transform 1.2s cubic-bezier(.2,.7,.2,1),filter 1s,visibility 0s 1.2s}
 .slide.on{opacity:1;visibility:visible;pointer-events:auto;transform:none;filter:none;transition:opacity 1s ease,transform 1.2s cubic-bezier(.2,.7,.2,1),filter 1s,visibility 0s}
 /* centre content when it fits, scroll from the top when it does not */
-.slide>:first-child{margin-top:auto}.slide>:last-child{margin-bottom:auto}
+.slide::before,.slide::after{content:'';flex:1 0 0}.slide::before{margin-bottom:-1.4rem}.slide::after{margin-top:-1.4rem}
 .slide.ovf{overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}
 /* with a mouse the deck tilts in 3D; let clicks reach the content instead of the (coplanar) slide itself */
 @media (hover:hover){#deck,.slide.on{pointer-events:none}.slide.on *{pointer-events:auto}}
@@ -90,6 +91,9 @@ input[type=range]{accent-color:var(--acc);width:min(300px,80vw)}
 @keyframes cn{50%{transform:rotateY(180deg)}}
 #lb{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;cursor:zoom-out;perspective:1200px}#lb.on{display:flex}
 #lb img{max-width:92vw;max-height:88vh;box-shadow:0 30px 90px #000;animation:lz .6s cubic-bezier(.2,.7,.2,1)}@keyframes lz{from{transform:scale(.6) rotateY(40deg);opacity:0}}
+#hud{pointer-events:none}#hud>*{pointer-events:auto}
+.members{padding:.55em 1.3em;background:rgba(10,8,6,.5);border:1px solid rgba(255,255,255,.18);border-radius:999px;color:#fbf3e4!important;text-shadow:0 1px 8px rgba(0,0,0,.6);letter-spacing:.3em;line-height:1.8;max-width:min(760px,100%)}
+.refs{max-width:860px;text-align:left}.refs ol{margin:0;padding-left:1.3rem;line-height:1.6;font-size:clamp(.88rem,1.6vw,1.02rem)}.refs li{margin:.45rem 0}.refs li::marker{font-family:'Special Elite',monospace;color:var(--lb)}
 #sp{position:fixed;right:1rem;top:1rem;bottom:4rem;width:min(390px,90vw);z-index:15;background:var(--gl);border:1px solid var(--bd);backdrop-filter:blur(14px);padding:1.2rem 1.4rem;overflow:auto;text-align:left;font-size:.95rem;line-height:1.6;transform:translateX(115%);transition:transform .7s cubic-bezier(.2,.7,.2,1)}#sp.on{transform:none}#sp p{margin:.6rem 0}
 /* ===== staged theme: normal > dark > royal > blood red (driven by JS vars) ===== */
 html,body{background:#14100c}
@@ -103,6 +107,245 @@ h1,h2{text-shadow:0 3px 24px rgba(0,0,0,.8)!important}
 button{border-color:var(--bd)}button:hover{box-shadow:0 0 24px var(--acc)}
 .op .no{-webkit-text-stroke:1px var(--acc)}
 </style>
+<style>
+/* =====================================================================
+   SPEAKER 01 · SAYANJEET — "Who holds the paintbrush?"
+   Four posters, one per theme in the design brief:
+   .ag agitprop · .bw barn wall · .ds dossier · .nw reader-response network
+   ===================================================================== */
+.slide.sjs{padding:1.2rem 1.4rem 4.4rem}
+.sj{--crim:#B31E1E;--soot:#1E1E1E;--news:#F3EDE0;--gold:#D4A017;--slate:#5E656B;--green:#234730;--wash:#EAE4D3;--peat:#2F241D;--bred:#782823;--chalk:#3A403D;--manila:#E7DEC8;--ink:#2B2B28;--stamp:#A62424;--olive:#474E3F;--px:clamp(1.1rem,3vw,3rem);
+ position:relative;flex:none;width:min(1400px,100%);text-align:left;color:var(--soot);border-radius:3px;overflow:hidden;isolation:isolate;line-height:1.45;
+ box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 0 0 1px rgba(0,0,0,.3),0 40px 90px rgba(0,0,0,.55),0 10px 24px rgba(0,0,0,.35)}
+.sj.rv{--z:30px}
+.sj::after{content:'';position:absolute;inset:0;z-index:20;pointer-events:none;opacity:.2;mix-blend-mode:multiply;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .33 0 0 0 0 .25 0 0 0 0 .16 0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.sj::before{content:'';position:absolute;inset:0;z-index:19;pointer-events:none;box-shadow:inset 0 0 110px rgba(90,60,25,.22)}
+.sj h2,.sj h3,.sj h4{text-shadow:none!important;margin:0;font-weight:400}
+.sj button{font:inherit;color:inherit;background:none;border:0;border-radius:0;padding:0;margin:0;letter-spacing:inherit;text-transform:none;cursor:pointer;transition:background .25s,color .25s,border-color .25s,transform .25s}
+.sj button:hover{box-shadow:none}
+.sj button:focus-visible,.sj [tabindex]:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.sj blockquote{margin:0}
+.sj-spb{position:absolute;right:1.2rem;bottom:calc(1.1rem + env(safe-area-inset-bottom,0px));z-index:6;padding:.4rem .9rem!important}
+@keyframes sjFade{from{opacity:0;transform:translateY(6px)}}
+
+/* ---------- 1 · agitprop ---------- */
+.ag{background:var(--news);font-family:'PT Sans',Arial,sans-serif;font-size:clamp(.84rem,min(1.12vw,1.95vh),1.32rem);padding:clamp(1rem,3vh,2.4rem) var(--px) 0;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);grid-template-areas:"txt art" "tiles tiles" "cap cap" "slo slo";column-gap:clamp(1rem,2.5vw,2.4rem)}
+.ag-corner,.nw-corner{position:absolute;right:0;top:0;z-index:3;width:clamp(64px,8vw,112px);aspect-ratio:1;background:linear-gradient(225deg,var(--crim) 0 46%,var(--news) 46% 49%,var(--soot) 49% 53%,transparent 53%)}
+.ag-txt{grid-area:txt;position:relative;z-index:2}
+.ag-k,.nw-k{display:flex;align-items:center;gap:.8em;font:700 .74em 'Courier Prime',monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--slate)}
+.ag-k b,.nw-k b{background:var(--crim);color:var(--news);padding:.35em .65em;letter-spacing:.18em}
+.ag-h{font:400 clamp(2.5rem,min(6.4vw,10.6vh),7.8rem)/.86 'Bebas Neue',Impact,sans-serif!important;letter-spacing:.012em;margin:.28em 0 .08em!important}
+.ag-h span{display:block;color:var(--crim)}
+.ag-bars{display:flex;gap:6px;margin:.45em 0 .9em}.ag-bars i{height:7px;width:clamp(90px,15vw,220px);background:var(--crim)}.ag-bars i+i{width:34px;background:var(--soot)}
+.ag-lead{margin:0 0 1em;font-size:1.12em;line-height:1.5;max-width:31em;color:#2b2723}
+.ag-lead strong{color:var(--crim)}
+.ag-sw{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;background:var(--soot);padding:4px;border-radius:999px;font:500 .84em 'Oswald',sans-serif;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+.ag-sw button{position:relative;z-index:1;padding:.62em 1.35em!important;border-radius:999px!important;color:#b9b2a4;white-space:nowrap}
+.ag-sw button[aria-pressed=true]{color:var(--news)}
+.ag-sw .kn{position:absolute;z-index:0;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:var(--slate);transition:transform .55s cubic-bezier(.2,.8,.2,1),background .55s}
+.ag[data-l="1"] .ag-sw .kn{transform:translateX(100%);background:var(--crim)}
+.ag-art{grid-area:art;position:relative;min-height:12em}
+.ag-art svg{position:absolute;left:-4%;top:-6%;width:112%;height:112%;overflow:visible}
+.ag-sg{font:400 30px 'Black Ops One',Impact,sans-serif;fill:var(--soot);letter-spacing:1px}
+.ag-wet{font:400 35px 'Black Ops One',Impact,sans-serif;fill:var(--crim);letter-spacing:1px;clip-path:inset(0 100% 0 0);transition:clip-path 1.5s cubic-bezier(.5,0,.3,1) .35s}
+.ag[data-l="1"] .ag-wet{clip-path:inset(-10% -6% -10% -2%)}
+.ag-brush{transition:transform 1.5s cubic-bezier(.5,0,.3,1) .35s}
+.ag[data-l="1"] .ag-brush{transform:translateX(262px)}
+.on .ag-art .ray{animation:agSpin 60s linear infinite;transform-origin:300px 165px}
+@keyframes agSpin{to{transform:rotate(360deg)}}
+.ag-tiles{grid-area:tiles;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.5rem,1vw,.9rem);margin-top:clamp(.6rem,1.8vh,1.2rem);perspective:900px}
+.ag-t{position:relative;height:clamp(74px,12vh,146px);transform-style:preserve-3d;transition:transform .9s cubic-bezier(.3,1.25,.5,1) var(--td,0s)}
+.ag[data-l="1"] .ag-t{transform:rotateX(-180deg)}
+.ag-t>div{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;gap:.25em;padding:.6em 1em;border:2px solid var(--soot)}
+.ag-t .f{background:var(--news)}
+.ag-t .b{transform:rotateX(180deg);background:var(--soot);color:var(--news)}
+.ag-t b{font:400 clamp(1.45rem,min(2.5vw,4.2vh),2.8rem)/1 'Bebas Neue',sans-serif;letter-spacing:.04em}
+.ag-t .f span{font:500 .92em 'Oswald',sans-serif;color:var(--crim);letter-spacing:.07em;text-transform:uppercase}
+.ag-t .b b{color:var(--gold)}
+.ag-t .b span{font-size:1em;line-height:1.25;color:#ece5d6}
+.ag-cap{grid-area:cap;margin:.75em 0 .9em;font-size:1.04em;font-style:italic;color:#3a342d;min-height:2.9em;max-width:60em}
+.ag-cap.sw{animation:sjFade .5s both}
+.ag-slo{grid-area:slo;margin:0 calc(-1*var(--px));background:var(--crim);color:var(--news);padding:.7em var(--px);font:400 clamp(1.15rem,min(2.15vw,3.5vh),2.3rem)/1.05 'Bebas Neue',sans-serif;letter-spacing:.06em;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.ag-slo small{font:700 clamp(.66rem,.85vw,.85rem) 'Courier Prime',monospace;letter-spacing:.15em;color:#f8dca9;white-space:nowrap}
+
+/* ---------- 2 · barn wall ---------- */
+.bw{--pl:clamp(36px,5.6vh,62px);--nmw:7.4em;background:repeating-linear-gradient(180deg,transparent 0 calc(var(--pl) - 2px),rgba(47,36,29,.2) calc(var(--pl) - 2px) var(--pl)),repeating-linear-gradient(90deg,rgba(47,36,29,.03) 0 2px,transparent 2px 9px),var(--wash);font-family:'EB Garamond',Georgia,serif;color:var(--peat);font-size:clamp(.9rem,min(1.22vw,2.05vh),1.4rem)}
+.bw-head{position:relative;display:flex;align-items:center;gap:clamp(.7rem,1.6vw,1.2rem);background:var(--green);color:var(--wash);padding:clamp(.7rem,2vh,1.2rem) var(--px)}
+.bw-head::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:6px;background:var(--bred)}
+.bw-head svg{width:clamp(50px,5.6vw,76px);flex:none}
+.bw-head small{font:400 .74em 'Special Elite',monospace;letter-spacing:.24em;text-transform:uppercase;opacity:.85}
+.bw-head h2{font:400 clamp(1.7rem,min(3.5vw,5.8vh),3.9rem)/1 'Black Ops One',Impact,sans-serif!important;letter-spacing:.03em;margin-top:.12em!important}
+.bw-body{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(1rem,2.4vw,2.2rem);padding:clamp(1rem,2.6vh,1.7rem) var(--px) .4rem}
+.bw-scale{display:grid;grid-template-columns:var(--nmw) 1fr;column-gap:.8rem;font:400 .72em 'Special Elite',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--chalk);margin-bottom:.2em}
+.bw-scale div{position:relative;height:1.5em;border-bottom:1px dashed rgba(58,64,61,.45)}
+.bw-scale div span{position:absolute;bottom:.2em;transform:translateX(-50%);white-space:nowrap}
+.bw-scale div span:first-child{transform:none}.bw-scale div span:last-child{transform:translateX(-100%)}
+.bw-row{display:grid!important;grid-template-columns:var(--nmw) 1fr;grid-template-areas:"nm tr" ". nt";align-items:center;column-gap:.8rem;width:calc(100% + .8em);text-align:left;padding:.22em .4em!important;margin:0 -.4em!important;border-radius:3px!important}
+.bw-row:hover{background:rgba(35,71,48,.08)!important}
+.bw-row[aria-pressed=true]{background:rgba(35,71,48,.14)!important;box-shadow:inset 3px 0 0 var(--green)!important}
+.bw-row .nm{grid-area:nm;font:400 .98em 'Special Elite',monospace;letter-spacing:.05em;text-transform:uppercase}
+.bw-row[aria-pressed=true] .nm{color:var(--green)}
+.bw-row .tr{grid-area:tr;position:relative;height:clamp(20px,3.3vh,36px);background:rgba(47,36,29,.07);border-radius:2px}
+.bw-row .br{position:absolute;left:0;top:0;bottom:0;width:0;min-width:6px;border-radius:2px 16px 7px 2px/2px 9px 12px 2px;background:linear-gradient(180deg,rgba(255,255,255,.14),transparent 45%,rgba(0,0,0,.18)),repeating-linear-gradient(90deg,rgba(0,0,0,.06) 0 3px,transparent 3px 14px),var(--bred);transition:width 1.4s cubic-bezier(.2,.7,.2,1) var(--dl,0s)}
+.on .bw-row .br{width:var(--w)}
+.bw-row.ben .br{background:repeating-linear-gradient(135deg,#5d625f 0 7px,#7c817d 7px 14px)}
+.bw-row.ben .tr::after{content:'says nothing';position:absolute;right:.5em;top:50%;transform:translateY(-50%);font:400 .78em 'Special Elite',monospace;color:#f3eee2;letter-spacing:.06em}
+.bw-row.clo .br{background:repeating-linear-gradient(90deg,var(--bred) 0 calc(100%/26 - 2px),transparent calc(100%/26 - 2px) calc(100%/26)),rgba(120,40,35,.25)}
+.bw-row .nt{grid-area:nt;font-style:italic;font-size:.9em;color:#5a4a3c;line-height:1.25;padding:.12em 0 .2em}
+.bw-slate{position:relative;background:var(--chalk);color:#e9e6dd;padding:clamp(.8rem,2vh,1.2rem) clamp(.9rem,1.6vw,1.3rem);border:7px solid #5b4636;border-radius:3px;box-shadow:inset 0 0 50px rgba(0,0,0,.5),0 10px 22px rgba(0,0,0,.28);min-height:15em;align-self:start}
+.bw-slate>div{animation:sjFade .4s both}
+.bw-slate h3{font:400 1.18em/1.2 'Special Elite',monospace;color:#f4e9c6;letter-spacing:.03em;margin-bottom:.45em!important}
+.bw-slate p{margin:.4em 0;line-height:1.45}
+.bw-slate .big{font-size:1.18em;color:#fff6dc}
+.bw-slate .rd{margin-top:.7em;padding-top:.6em;border-top:1px dashed rgba(255,255,255,.3);font-style:italic;color:#d8d2c0}
+.bw-slate .rd b,.bw-slate .tip{display:block;font:700 .72em 'Courier Prime',monospace;font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.2em}
+.bw-slate .tip{margin-top:.9em;color:#9fb79f}
+.bw-foot{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.6rem var(--px) clamp(.9rem,2.4vh,1.4rem)}
+.bw-chant{background:var(--bred)!important;color:var(--wash)!important;font:400 .9em 'Special Elite',monospace!important;letter-spacing:.12em!important;text-transform:uppercase!important;padding:.75em 1.25em!important;border-radius:2px!important;box-shadow:0 3px 0 #4a1714!important}
+.bw-chant:hover{background:#923129!important;transform:translateY(-1px)}
+.bw-foot span{font-style:italic;color:#5a4a3c}
+.bw-sheep{position:absolute;inset:0;z-index:10;visibility:hidden;opacity:0;transition:opacity .45s,visibility 0s .45s;background:rgba(234,228,211,.9);overflow:hidden;cursor:pointer}
+.bw.ch .bw-sheep{visibility:visible;opacity:1;transition:opacity .45s}
+.bw-sheep .seven{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);margin:0;padding:1em 1.4em 1em 2.6em;background:#1b1410;color:#f3eee2;font:400 .9em/1.7 'Special Elite',monospace;opacity:0;white-space:nowrap}
+.bw-sheep .one{position:absolute;left:50%;top:16%;transform:translate(-50%,-50%);font:400 clamp(1.4rem,3vw,2.6rem) 'Black Ops One',Impact,sans-serif;color:var(--green);white-space:nowrap;opacity:0;z-index:3}
+.bw-sheep .pr{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;background:#fff;border:2px solid var(--peat);padding:.8em 1.3em;border-radius:16px;font:italic 1.3em 'EB Garamond',serif;opacity:0;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.bw-sheep .pr::after{content:'';position:absolute;left:24%;bottom:-12px;border:10px solid transparent;border-top-color:var(--peat);border-bottom:0}
+.bw-sheep .c{position:absolute;z-index:2;left:var(--x);top:var(--y);font:400 clamp(.95rem,1.9vw,1.6rem) 'Black Ops One',Impact,sans-serif;color:var(--bred);white-space:nowrap;opacity:0;transform:translate(-50%,-50%) rotate(var(--r));text-shadow:0 0 1px rgba(0,0,0,.2)}
+.bw-sheep .cap{position:absolute;left:0;right:0;bottom:0;z-index:4;background:var(--green);color:var(--wash);padding:.8em var(--px);font-size:1em;line-height:1.4;transform:translateY(100%)}
+.bw-sheep .cap b{font-family:'Special Elite',monospace;font-weight:400;letter-spacing:.04em;display:block;font-size:1.05em}
+.bw.ch .seven{animation:bwSeven 1.3s both}
+.bw.ch .one{animation:bwOne .6s cubic-bezier(.3,1.5,.5,1) 1.1s both}
+.bw.ch .pr{animation:bwPop .45s cubic-bezier(.3,1.5,.5,1) 1.6s both}
+.bw.ch .c{animation:bwC .45s cubic-bezier(.3,1.5,.5,1) calc(2.1s + var(--i)*.13s) both}
+.bw.ch .cap{animation:bwCap .6s cubic-bezier(.2,.8,.2,1) 4.6s both}
+@keyframes bwSeven{0%{opacity:0;transform:translate(-50%,-50%) scale(.92)}20%,65%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scaleY(.04)}}
+@keyframes bwOne{from{opacity:0;transform:translate(-50%,-50%) scale(.3)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes bwPop{from{opacity:0;transform:translate(-50%,-50%) scale(.6)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes bwC{from{opacity:0;transform:translate(-50%,-50%) rotate(var(--r)) scale(1.8)}to{opacity:var(--o);transform:translate(-50%,-50%) rotate(var(--r)) scale(1)}}
+@keyframes bwCap{to{transform:none}}
+
+/* ---------- 3 · dossier ---------- */
+.ds{background:linear-gradient(#d8c9a3 0 clamp(26px,4vh,34px),#c9b98f clamp(26px,4vh,34px) calc(clamp(26px,4vh,34px) + 2px),var(--manila) 0);font-family:'Libre Baskerville',Georgia,serif;color:var(--ink);font-size:clamp(.76rem,min(1.02vw,1.78vh),1.2rem);padding:clamp(2.2rem,6vh,3.2rem) var(--px) 0}
+.ds-tab{position:absolute;top:0;left:var(--px);height:clamp(26px,4vh,34px);display:flex;align-items:center;padding:0 1.1em;background:var(--manila);border:1px solid #c9b98f;border-bottom:0;border-radius:7px 7px 0 0;font:700 .76em 'Courier Prime',monospace;letter-spacing:.2em;color:var(--olive)}
+.ds-tab2{left:auto;right:var(--px);background:#e2d6b6;color:#7c7257}
+.ds-head{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:clamp(1rem,2vw,1.6rem)}
+.ds-stamp{grid-row:span 2;font:700 .86em/1.15 'Courier Prime',monospace;letter-spacing:.2em;text-transform:uppercase;text-align:center;color:var(--stamp);border:3px double var(--stamp);padding:.45em .7em;transform:rotate(-8deg);mix-blend-mode:multiply;opacity:.88}
+.ds-head h2{font:700 clamp(1.5rem,min(3.3vw,5.6vh),3.6rem)/1.05 'Courier Prime',monospace!important;letter-spacing:-.01em}
+.ds-meta{font:400 .78em 'Courier Prime',monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--olive);margin-top:.3em}
+.ds-body{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(.9rem,2vw,1.7rem);margin-top:clamp(.7rem,2vh,1.2rem)}
+.ds-doc{position:relative;background:#f7f2e4;border:1px solid #c9bc98;box-shadow:0 2px 0 #ddd3b8,0 4px 0 #d0c5a6,0 12px 22px rgba(0,0,0,.16);padding:.9rem 1.2rem 1rem}
+.ds-clip{position:absolute;right:9rem;top:-1.1rem;width:22px;z-index:2}
+.ds-dt{display:flex;justify-content:space-between;gap:1rem;font:700 .78em 'Courier Prime',monospace;letter-spacing:.15em;border-bottom:2px solid var(--ink);padding-bottom:.4em}
+.ds-dt span:last-child{color:var(--stamp)}
+.ds-revs{display:flex;flex-wrap:wrap;gap:.4rem;margin:.75em 0 .5em}
+.ds-revs button{font:700 .76em 'Courier Prime',monospace!important;letter-spacing:.1em!important;padding:.45em .8em!important;border:1.5px solid var(--olive)!important;color:var(--olive)!important}
+.ds-revs button:hover{background:rgba(71,78,63,.14)!important}
+.ds-revs button[aria-pressed=true]{background:var(--olive)!important;color:var(--manila)!important}
+.ds-e{display:none;position:relative;margin:.5em 0;padding-left:.9em;border-left:2px solid #cfc3a2;line-height:1.6}
+.ds-e.sh{display:block}
+.ds-e .v{display:block;font:700 .7em 'Courier Prime',monospace;letter-spacing:.14em;color:var(--olive)}
+.ds-e.new{animation:dsType 1.6s steps(32) both}
+@keyframes dsType{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.ds-e.x{color:#857e6e;border-left-color:var(--stamp)}
+.ds-e.x .t{text-decoration:line-through;text-decoration-color:rgba(166,36,36,.75);text-decoration-thickness:2px}
+.ds-e .nm{position:relative;white-space:nowrap}
+.ds-e.x .nm::after{content:'';position:absolute;left:-2px;right:-2px;top:.08em;bottom:0;background:var(--ink);transform-origin:left;animation:dsRedact .45s ease-out .2s both}
+@keyframes dsRedact{from{transform:scaleX(0)}}
+.ds-rev{position:absolute;right:1.2rem;top:2.6rem;z-index:3;font:700 1.45em 'Courier Prime',monospace;letter-spacing:.2em;color:var(--stamp);border:4px solid var(--stamp);padding:.1em .5em;opacity:0;mix-blend-mode:multiply;pointer-events:none;transform:rotate(-14deg)}
+.ds-rev.on{animation:dsStamp .45s cubic-bezier(.3,1.6,.5,1) .9s both}
+@keyframes dsStamp{from{transform:rotate(-14deg) scale(2.4);opacity:0}to{transform:rotate(-14deg) scale(1);opacity:.85}}
+.ds-mem{margin-top:.8em;padding:.5em .8em;border-left:3px solid #9a8f74;background:rgba(255,255,255,.4);font:italic 1.08em 'EB Garamond',serif;color:#4f4a3b;transition:opacity .9s,filter .9s}
+.ds-mem b{display:block;font:700 .66em 'Courier Prime',monospace;font-style:normal;letter-spacing:.15em;text-transform:uppercase;color:var(--olive)}
+.ds-mem.fade{opacity:.42;filter:blur(.7px)}
+.ds-side{display:flex;flex-direction:column;gap:clamp(.6rem,1.6vh,1rem)}
+.ds-ex{position:relative;background:#f7f2e4;border:1px solid #c9bc98;padding:.8rem 1rem .9rem;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.ds-ex h4{font:700 .72em 'Courier Prime',monospace!important;letter-spacing:.15em;text-transform:uppercase;color:var(--olive);border-bottom:1px solid #c9bc98;padding-bottom:.35em;margin-bottom:.5em!important}
+.ds-ex blockquote{font-style:italic;font-size:1.05em;line-height:1.5}
+.ds-ex p{margin:.45em 0 0;font-size:.92em;line-height:1.5}
+.ds-ex .mini{display:inline-block;margin-top:.5em;font:700 .72em 'Courier Prime',monospace;color:var(--stamp);border:2px solid var(--stamp);padding:.2em .45em;transform:rotate(-4deg);letter-spacing:.12em;mix-blend-mode:multiply}
+.ds-corr{border-left:5px solid var(--stamp)}
+.ds-corr blockquote{font-size:1.18em}
+.ds-foot{margin:clamp(.8rem,2vh,1.2rem) calc(-1*var(--px)) 0;padding:.7em var(--px);background:var(--olive);color:var(--manila);font:400 .92em/1.45 'Courier Prime',monospace}
+.ds-foot b{color:#f3c9a0;letter-spacing:.14em}
+
+/* ---------- 4 · reader-response network ---------- */
+.nw{background:var(--news);font-family:'PT Sans',Arial,sans-serif;font-size:clamp(.78rem,min(1.05vw,1.8vh),1.22rem);padding:clamp(.9rem,2.6vh,1.7rem) var(--px) 0}
+.nw-h{font:400 clamp(1.9rem,min(4.2vw,7vh),4.9rem)/.9 'Bebas Neue',Impact,sans-serif!important;margin:.28em 0 .1em!important;letter-spacing:.015em}
+.nw-h span{color:var(--crim)}
+.nw .ag-bars{margin:.35em 0 .2em}
+.nw-body{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:clamp(.9rem,2.2vw,2rem);align-items:start;margin-top:.5rem}
+.nw-chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.nw-chips button{display:inline-flex!important;align-items:center;gap:.45em;font:700 .7em 'Courier Prime',monospace!important;letter-spacing:.08em!important;text-transform:uppercase!important;padding:.4em .65em!important;border:1.5px solid var(--soot)!important}
+.nw-chips button:hover{background:rgba(30,30,30,.08)!important}
+.nw-chips button[aria-pressed=true]{background:var(--soot)!important;color:var(--news)!important}
+.nw-chips i{width:.8em;height:.8em;display:inline-block}
+.sh-ch{background:var(--crim)}.sh-af{background:var(--green);border-radius:50%}.sh-ex{background:var(--gold);clip-path:polygon(50% 0,100% 100%,0 100%)}.sh-ot{background:var(--slate);transform:rotate(45deg) scale(.8)}
+.nw-svg{display:block;width:100%;height:auto;max-height:min(60vh,760px);margin:.2rem auto 0;overflow:visible;touch-action:manipulation}
+.nw-svg .e{stroke-width:1.1;opacity:.5;stroke-dasharray:var(--len);transition:opacity .3s,stroke-width .3s}
+.nw-svg .e.ch{stroke:var(--crim)}.nw-svg .e.af{stroke:var(--green)}.nw-svg .e.ex{stroke:var(--gold)}.nw-svg .e.ot{stroke:var(--slate)}
+.nw-svg .ec{stroke:var(--soot);stroke-width:2.2;opacity:.75;transition:opacity .3s}
+.nw-svg .dash{fill:none;stroke:var(--soot);stroke-dasharray:4 4;stroke-width:1.3;opacity:.55;transition:opacity .3s}
+.on .nw-svg .e{animation:nwDraw 1.1s ease-out var(--dl,0s) both}
+@keyframes nwDraw{from{stroke-dashoffset:var(--len)}to{stroke-dashoffset:0}}
+.nw-svg .cn,.nw-svg .pn{cursor:pointer;transition:opacity .3s}
+.nw-svg .cn .s{stroke:var(--soot);stroke-width:1;transform-box:fill-box;transform-origin:center;transition:transform .2s}
+.nw-svg .cn:hover .s,.nw-svg .cn.sel .s{transform:scale(1.45)}
+.on .nw-svg .cn .pop{animation:nwPop .5s cubic-bezier(.3,1.6,.5,1) var(--dl,0s) both;transform-box:fill-box;transform-origin:center}
+@keyframes nwPop{from{transform:scale(0);opacity:0}}
+.nw-svg .cn text{font:700 13px 'Courier Prime',monospace;fill:var(--soot)}
+.nw-svg .s.ch{fill:var(--crim)}.nw-svg .s.af{fill:var(--green)}.nw-svg .s.ex{fill:var(--gold)}.nw-svg .s.ot{fill:var(--slate)}
+.nw-svg .pn circle{fill:#d9d0bf;stroke:var(--soot);stroke-width:1.6;transition:fill .25s}
+.nw-svg .pn:hover circle,.nw-svg .pn.sel circle{fill:#f3d68c}
+.nw-svg .pn text{font:700 13.5px 'PT Sans',Arial,sans-serif;fill:var(--soot);text-anchor:middle;pointer-events:none}
+.nw-svg .pn .n{font-weight:400}
+.nw-svg .core circle{fill:var(--soot)}
+.nw-svg .core text{fill:var(--news);font:600 19px 'EB Garamond',serif;text-anchor:middle;pointer-events:none}
+.nw-svg.f .e,.nw-svg.f .ec,.nw-svg.f .dash,.nw-svg.f .cn,.nw-svg.f .pn{opacity:.1}
+.nw-svg.f .hl{opacity:1!important}
+.nw-svg.f .e.hl{stroke-width:2.3}
+.nw-panel{position:relative;background:var(--manila);border:1px solid #c9bc98;border-top:6px solid var(--crim);padding:clamp(.8rem,2vh,1.1rem) clamp(.9rem,1.6vw,1.3rem);box-shadow:0 10px 24px rgba(0,0,0,.15);font-family:'Libre Baskerville',Georgia,serif;font-size:.9em;min-height:24em}
+.nw-panel>div{animation:sjFade .35s both}
+.nw-panel .k{font:700 .74em 'Courier Prime',monospace;letter-spacing:.15em;text-transform:uppercase;color:var(--slate)}
+.nw-panel h3{font:400 2.1em/1 'Bebas Neue',sans-serif!important;letter-spacing:.03em;margin:.15em 0 .3em!important}
+.nw-panel h3 small{font-size:.6em;color:var(--crim);margin-left:.3em}
+.nw-stack{display:flex;height:15px;border:1.5px solid var(--soot);margin:.3em 0 .35em}
+.nw-stack i{height:100%;width:var(--w)}
+.nw-stack .ch{background:var(--crim)}.nw-stack .af{background:var(--green)}.nw-stack .ex{background:var(--gold)}.nw-stack .ot{background:var(--slate)}
+.nw-leg{display:flex;flex-wrap:wrap;gap:.25em 1em;font:700 .68em 'Courier Prime',monospace;letter-spacing:.05em;text-transform:uppercase;color:#4a4740}
+.nw-leg i{width:.75em;height:.75em;display:inline-block;margin-right:.35em;vertical-align:-.05em}
+.nw-q{margin:.6em 0;padding:.5em .8em;border-left:4px solid var(--green);background:rgba(255,255,255,.5);font-style:italic;line-height:1.5}
+.nw-q.ch{border-left-color:var(--crim)}.nw-q.ex{border-left-color:var(--gold)}.nw-q.ot{border-left-color:var(--slate)}
+.nw-q b{display:block;font:700 .72em 'Courier Prime',monospace;font-style:normal;letter-spacing:.1em;color:var(--crim);margin-bottom:.15em}
+.nw-w{margin-top:.7em;padding-top:.55em;border-top:2px solid var(--soot);line-height:1.5}
+.nw-w b{display:block;font:700 .7em 'Courier Prime',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);margin-bottom:.15em}
+.nw-find{list-style:none;padding:0;margin:.6em 0 .2em}
+.nw-find li{display:grid;grid-template-columns:3.6em 1fr;align-items:center;gap:.8em;padding:.42em 0;border-bottom:1px dashed #b8ab8a;line-height:1.4}
+.nw-find b{font:400 2.3em/1 'Bebas Neue',sans-serif;color:var(--crim);text-align:right}
+.nw-hint{margin:.7em 0 0;font:700 .72em 'Courier Prime',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--slate)}
+.nw-tags{display:flex;flex-wrap:wrap;gap:.3em;margin:.4em 0}
+.nw-tags span{font:700 .7em 'Courier Prime',monospace;letter-spacing:.06em;padding:.2em .5em;border:1px solid var(--soot);background:rgba(255,255,255,.45)}
+.nw-scale{display:block;width:100%;max-width:330px;margin:.2em auto .1em;overflow:visible}
+.nw-scale .beam,.nw-scale .pan{transition:transform 1.3s cubic-bezier(.3,1.4,.5,1) .25s}
+.nw-scale text{font:700 9px 'Courier Prime',monospace;text-anchor:middle;fill:var(--soot)}
+.nw-scale .wt{font-size:7.5px;fill:#fff}
+.nw-foot{margin:clamp(.7rem,1.8vh,1.1rem) calc(-1*var(--px)) 0;background:var(--soot);color:var(--news);padding:.75em var(--px);font:400 clamp(1rem,min(1.75vw,2.9vh),1.85rem)/1.15 'Bebas Neue',sans-serif;letter-spacing:.05em}
+.nw-foot span{color:var(--gold)}
+
+/* ---------- phones and narrow screens ---------- */
+@media(max-width:860px){
+ .slide.sjs{padding:3.2rem .8rem 4.6rem}
+ .sj-spb{top:.7rem;bottom:auto;right:.8rem}
+ .ag{grid-template-columns:1fr;grid-template-areas:"txt" "art" "tiles" "cap" "slo"}
+ .ag-art{height:210px;min-height:0;margin-top:.6rem}.ag-art svg{left:0;top:0;width:100%;height:100%}
+ .ag-tiles{grid-template-columns:1fr}.ag-t{height:72px}
+ .ag-slo{flex-direction:column;align-items:flex-start;gap:.4rem}
+ .bw-body,.ds-body,.nw-body{grid-template-columns:1fr}
+ .bw{--nmw:5.6em}.bw-row.ben .tr::after{content:none}
+ .ds-tab2{display:none}.ds-head{grid-template-columns:1fr}.ds-stamp{grid-row:auto;justify-self:start;margin-bottom:.6rem}
+ .nw-svg{max-height:none}
+ .nw-panel{min-height:0}
+}
+</style>
 </head>
 <body>
 <canvas id="gl"></canvas><div id="vig"></div><div id="grain"></div>
@@ -111,14 +354,257 @@ button{border-color:var(--bd)}button:hover{box-shadow:0 0 24px var(--acc)}
 <div id="hud"><button id="pv">←</button><span id="ct"></span><button id="nx">→</button><button id="fs">Fullscreen</button></div>
 
 <script>
+/* =====================================================================
+   SPEAKER 01 · SAYANJEET — "Who holds the paintbrush?"
+   My review of Animal Farm, and what 34 classmates' replies did to it.
+   Four posters; → (or a clicker) steps through each poster's builds.
+   Called by the main script straight after the title slide.
+   ===================================================================== */
+function sayanjeetSlides(add,setStep,SPEECH){
+ const poster=(h,o)=>{const s=add(h+'<button class="spb sj-spb" data-sp="sayanjeet">Show speech</button>',0,o);s.classList.add('sjs');return s};
+ const q=(s,sel)=>s.querySelector(sel),qa=(s,sel)=>[...s.querySelectorAll(sel)];
+ const replay=(el,c)=>{el.classList.remove(c);void el.offsetWidth;el.classList.add(c)};
+
+ /* ---------- 1 · agitprop: the thesis ---------- */
+ const TILES=[['Napoleon','= Stalin','Squealer','“Is it written down anywhere?”'],
+  ['Snowball','= Trotsky','The wall','Seven rules, edited one phrase at a time'],
+  ['The windmill','= the Five-Year Plans','The sheep','A farm that can only chant']];
+ const CAP=['That reading is accurate, and it’s the one most of us get taught. But by the last page, I felt it undersold the book.',
+  'Nobody lies about the past outright. The pigs just make sure the written record is the only past that counts, and then they hold the paintbrush.'];
+ const rays=[...Array(18)].map((_,i)=>{const a=i/18*Math.PI*2,b=a+Math.PI/30,R=290,p=t=>`${(300+R*Math.cos(t)).toFixed(1)},${(165+R*Math.sin(t)).toFixed(1)}`;return `<path d="M300,165L${p(a)}L${p(b)}Z"/>`}).join('');
+ const s1=poster(`<div class="sj ag rv" data-l="0" style="--d:.15s">
+  <div class="ag-corner"></div>
+  <div class="ag-txt">
+   <div class="ag-k"><b>Speaker 01</b>Sayanjeet · my reading</div>
+   <h2 class="ag-h">Who holds the <span>paintbrush?</span></h2>
+   <div class="ag-bars"><i></i><i></i></div>
+   <p class="ag-lead">Everyone knows the parallel to 1917. What unsettled me was <strong>how easily the animals were talked out of their own memories.</strong></p>
+   <div class="ag-sw" role="group" aria-label="Choose a reading"><span class="kn"></span><button data-l="0" aria-pressed="true">The history lesson</button><button data-l="1" aria-pressed="false">My reading</button></div>
+  </div>
+  <div class="ag-art" aria-hidden="true"><svg viewBox="0 0 480 400">
+   <g class="ray" fill="#D4A017" opacity=".3">${rays}</g>
+   <circle cx="300" cy="165" r="112" fill="#B31E1E"/>
+   <polygon points="-40,380 540,122 540,172 -40,430" fill="#1E1E1E"/>
+   <g transform="rotate(-6 210 300)">
+    <rect x="30" y="222" width="372" height="160" fill="#EAE4D3" stroke="#1E1E1E" stroke-width="3"/>
+    <g stroke="#2F241D" stroke-opacity=".2"><line x1="30" y1="275" x2="402" y2="275"/><line x1="30" y1="328" x2="402" y2="328"/></g>
+    <text class="ag-sg" x="48" y="262">NO ANIMAL SHALL</text>
+    <text class="ag-sg" x="48" y="314">SLEEP IN A BED</text>
+    <text class="ag-wet" x="48" y="368">WITH SHEETS.</text>
+    <g class="ag-brush"><g transform="translate(52 366) rotate(-36)">
+     <rect x="-5" y="-158" width="10" height="116" rx="4" fill="#782823"/>
+     <rect x="-8" y="-44" width="16" height="17" fill="#5E656B"/>
+     <path d="M-8,-27 L8,-27 L6,-4 Q0,4 -6,-4 Z" fill="#1E1E1E"/>
+     <path d="M-6,-6 Q0,6 6,-6 Q0,0 -6,-6 Z" fill="#B31E1E"/>
+    </g></g>
+   </g>
+  </svg></div>
+  <div class="ag-tiles">${TILES.map(([a,b,c,d],i)=>`<div class="ag-t" style="--td:${i*.13}s"><div class="f"><b>${a}</b><span>${b}</span></div><div class="b"><b>${c}</b><span>${d}</span></div></div>`).join('')}</div>
+  <p class="ag-cap"></p>
+  <div class="ag-slo">Read it a second time for the Commandments, not the Revolution.<small>★★★★★ · my review · 21 Sept 2026</small></div>
+ </div>`,{steps:1,show:n=>{const p=q(s1,'.ag');p.dataset.l=n;qa(s1,'.ag-sw button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l==n));const c=q(s1,'.ag-cap');if(c.dataset.n!=n){c.dataset.n=n;c.textContent=CAP[n];replay(c,'sw')}}});
+ qa(s1,'.ag-sw button').forEach(b=>b.onclick=()=>setStep(s1,+b.dataset.l));
+
+ /* ---------- 2 · barn wall: who can read ---------- */
+ const LIT=[
+  {k:'pigs',n:'The pigs',w:100,nt:'read and write perfectly',h:'The pigs — read and write perfectly',p:'The pigs read perfectly, and they hold the paintbrush. Whoever can read the wall gets to decide what the wall says.',r:['C06','The pigs wrote the rules, keep the paint, and are the only ones who think of writing as editable.']},
+  {k:'ben',n:'Benjamin',w:100,c:'ben',nt:'as well as any pig — and never uses it',h:'Benjamin — sees everything, says nothing',p:'He sees through everything, and he says nothing. “Donkeys live a long time” is funny in chapter three and chilling by chapter nine. <b>Clear vision without action is useless.</b>',r:['C05','He isn’t a coward, he fought at the Cowshed. He’s just certain. And I find that certainty harder to forgive than fear would be.']},
+  {k:'mur',n:'Muriel',w:84,nt:'manages — scraps of newspaper',h:'Muriel — manages',p:'It is Muriel who reads the altered wall aloud to Clover. The wall now mentions sheets, so Clover decides her own memory must be wrong.',r:['C06','Here the written record is the weapon, and the literate goat is the one who delivers it.']},
+  {k:'clo',n:'Clover',w:60,c:'clo',nt:'the whole alphabet — can’t put words together',h:'Clover — understands, can’t find the words',p:'After the executions she sings <i>Beasts of England</i> on the knoll. It is the only protest she has left, and for me the emotional high point of the book.',r:['C15','I just can’t decide whether a melody with no argument attached is a comfort or a measure of the loss.']},
+  {k:'box',n:'Boxer',w:9.2,nt:'never gets past the letter D',h:'Boxer — never gets past D',p:'The strongest, most loyal animal on the farm. His answers shrink to “I will work harder” and “Napoleon is always right.”',r:['C10','Silence fails to stop the pigs. Loyalty is what feeds them.']},
+  {k:'shp',n:'The sheep',w:2.5,nt:'can’t learn the Seven Commandments',h:'The sheep — can only chant',p:'So Snowball shrinks the whole philosophy into “Four legs good, two legs bad.” It looks like a kindness. It’s actually the first step toward a population that can only chant.',r:['C16','If Squealer had said that, we’d call it propaganda. Because it’s Snowball, we tend to call it teaching.']}];
+ const LIT0={h:'Look at who can read',p:'<span class="big">Literacy on this farm isn’t just missing — it’s rationed.</span>',r:['C31','Napoleon is the most committed educator on the farm… the point of teaching is to decide what each kind of animal will be capable of thinking.'],tip:'Tap an animal'};
+ const CMD7=['Whatever goes upon two legs is an enemy.','Whatever goes upon four legs, or has wings, is a friend.','No animal shall wear clothes.','No animal shall sleep in a bed.','No animal shall drink alcohol.','No animal shall kill any other animal.','All animals are equal.'];
+ let sd=7;const rnd=()=>(sd=(sd*9301+49297)%233280)/233280;
+ const cells=[];for(let r=0;r<5;r++)for(let c=0;c<3;c++)cells.push([26+c*24+(r%2?5:-5)+(rnd()-.5)*6,31+r*11.5+(rnd()-.5)*4]);
+ const order=cells.map((_,i)=>i).sort(()=>rnd()-.5);
+ const chant=order.map((k,i)=>`<span class="c" style="--i:${i};--x:${cells[k][0].toFixed(1)}%;--y:${cells[k][1].toFixed(1)}%;--r:${(-11+rnd()*22).toFixed(1)}deg;--o:${(.6+rnd()*.4).toFixed(2)}">Four legs good, two legs bad</span>`).join('');
+ const FLAG=`<svg viewBox="0 0 84 64" aria-hidden="true"><rect x="3" y="2" width="3.5" height="62" rx="1.5" fill="#c9b48a"/><path d="M6.5 5 C26 0 44 10 80 4 L80 40 C44 46 26 36 6.5 41 Z" fill="#2f6b45" stroke="#EAE4D3" stroke-width="1.6"/><path d="M27 14c-6 0-9.5 5-9.5 9 0 2.4 1.8 3.6 4 3.6h3.4v-3.4h4.2v3.4h3.4c2.2 0 4-1.2 4-3.6 0-4-3.5-9-9.5-9z" fill="#EAE4D3"/><path d="M47 30c3-10 13-15 24-12-7 1.5-13 6-16 13.5z" fill="#EAE4D3"/></svg>`;
+ const s2=poster(`<div class="sj bw rv" style="--d:.15s">
+  <header class="bw-head">${FLAG}<div><small>Speaker 01 · Sayanjeet · literacy</small><h2>Who can read on this farm?</h2></div></header>
+  <div class="bw-body">
+   <div class="bw-lad">
+    <div class="bw-scale" aria-hidden="true"><i></i><div><span style="left:0">A</span><span style="left:9.2%">D</span><span style="left:60%">Z</span><span style="left:72%">words</span><span style="left:100%">the wall</span></div></div>
+    ${LIT.map((a,i)=>`<button class="bw-row ${a.c||''}" data-k="${a.k}" aria-pressed="false" style="--w:${a.w}%;--dl:${(.55+i*.12).toFixed(2)}s"><span class="nm">${a.n}</span><span class="tr"><span class="br"></span></span><span class="nt">${a.nt}</span></button>`).join('')}
+   </div>
+   <aside class="bw-slate" aria-live="polite"></aside>
+  </div>
+  <footer class="bw-foot"><button class="bw-chant">Shrink seven rules into one slogan</button><span>Snowball’s shortcut for the animals who can’t read, Chapter III</span></footer>
+  <div class="bw-sheep" aria-hidden="true"><ol class="seven">${CMD7.map(c=>`<li>${c}</li>`).join('')}</ol><div class="one">Four legs good, two legs bad</div><div class="pr">“But comrades, the Meetings—”</div>${chant}<div class="cap"><b>When the pigs need to drown out a protest, the sheep are ready.</b>“…which went on for nearly a quarter of an hour and put an end to any chance of discussion.” — Chapter V</div></div>
+ </div>`,{steps:1,enter:()=>slate(null),show:n=>{q(s2,'.bw').classList.toggle('ch',n==1);q(s2,'.bw-chant').textContent=n?'Wipe the wall clean':'Shrink seven rules into one slogan'}});
+ function slate(k){const a=LIT.find(x=>x.k==k),d=a||LIT0;qa(s2,'.bw-row').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k==k));
+  q(s2,'.bw-slate').innerHTML=`<div><h3>${d.h}</h3><p>${d.p}</p><p class="rd"><b>Reader ${d.r[0]}</b>“${d.r[1]}”</p>${d.tip?`<span class="tip">← ${d.tip}</span>`:''}</div>`}
+ qa(s2,'.bw-row').forEach(b=>b.onclick=()=>slate(b.getAttribute('aria-pressed')=='true'?null:b.dataset.k));
+ q(s2,'.bw-chant').onclick=()=>setStep(s2,q(s2,'.bw').classList.contains('ch')?0:1);
+ q(s2,'.bw-sheep').onclick=()=>setStep(s2,0);
+
+ /* ---------- 3 · dossier: the record is rewritten ---------- */
+ const REV=[
+  {ch:'Ch. IV',v:'Rev. 1 · after the battle',t:'<span class="nm">Snowball</span> leads the defence. The pellets from Jones’s gun “scored bloody streaks along <span class="nm">Snowball</span>’s back.” Awarded: <b>Animal Hero, First Class.</b>',m:'Record and memory still agree.'},
+  {ch:'Ch. VII',v:'Rev. 2 · Squealer',t:'“That was our mistake, comrade. For we know now — it is all written down in the secret documents that we have found — that in reality he was trying to lure us to our doom.”',m:'Boxer: “I saw him myself.” …then: “If Comrade Napoleon says it, it must be right.”'},
+  {ch:'Ch. IX',v:'Rev. 3 · the final record',t:'<span class="nm">Snowball</span> “had been openly fighting on Jones’s side… The wounds on <span class="nm">Snowball</span>’s back… had been inflicted by Napoleon’s teeth.”',m:'“…which a few of the animals still remembered to have seen.”'}];
+ const CLIP=`<svg class="ds-clip" viewBox="0 0 22 60" aria-hidden="true"><path d="M7 52V12a4 4 0 0 1 8 0v36a7 7 0 0 1-14 0V8a10 10 0 0 1 20 0v40" fill="none" stroke="#8b8f93" stroke-width="2.2" stroke-linecap="round"/></svg>`;
+ const s3=poster(`<div class="sj ds rv" style="--d:.15s">
+  <div class="ds-tab">FILE Nº 06 · THE RECORD</div><div class="ds-tab ds-tab2">ANIMAL FARM · CONFIDENTIAL</div>
+  <header class="ds-head"><div class="ds-stamp">Official<br>record</div><h2>“Is it written down anywhere?”</h2><p class="ds-meta">Speaker 01 · Sayanjeet · Squealer, Chapter VI</p></header>
+  <div class="ds-body">
+   <section class="ds-doc">${CLIP}
+    <div class="ds-dt"><span>MINUTES · THE BATTLE OF THE COWSHED</span><span class="rn"></span></div>
+    <div class="ds-revs" role="group" aria-label="Revision">${REV.map((r,i)=>`<button data-v="${i}" aria-pressed="false">${r.ch}</button>`).join('')}</div>
+    ${REV.map((r,i)=>`<p class="ds-e" data-v="${i}"><span class="v">${r.v}</span><span class="t">${r.t}</span></p>`).join('')}
+    <div class="ds-rev">REVISED</div>
+    <div class="ds-mem"><b>Memory</b><span></span></div>
+   </section>
+   <aside class="ds-side">
+    <div class="ds-ex"><h4>Exhibit A · The trade resolution</h4><blockquote>“Have you any record of such a resolution? Is it written down anywhere?”</blockquote><p>Nothing was. So “the animals were satisfied that they had been mistaken.”</p><span class="mini">NO RECORD = NO PAST</span></div>
+    <div class="ds-ex ds-corr"><h4>Correction filed · reader C06</h4><blockquote>“The animals aren’t short of text. They’re short of control over it.”</blockquote><p>My revised reading: the danger isn’t a missing record. It’s who controls the writing.</p></div>
+   </aside>
+  </div>
+  <footer class="ds-foot"><b>READ IN 2026 →</b> surrounded by edited posts and screenshots of claims that later vanish, it reads less like a fable about Soviet Russia and more like a manual for any institution that controls the archive.</footer>
+ </div>`,{steps:2,show:rev});
+ function rev(n){qa(s3,'.ds-revs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v==n));
+  qa(s3,'.ds-e').forEach((e,i)=>{e.classList.toggle('sh',i<=n);e.classList.toggle('x',i<n);if(i==n)replay(e,'new');else e.classList.remove('new')});
+  const st=q(s3,'.ds-rev');if(n>0)replay(st,'on');else st.classList.remove('on');
+  q(s3,'.rn').textContent='REV. '+(n+1)+' / 3';const m=q(s3,'.ds-mem');m.lastChild.textContent=REV[n].m;m.classList.toggle('fade',n==2)}
+ qa(s3,'.ds-revs button').forEach(b=>b.onclick=()=>setStep(s3,+b.dataset.v));
+
+ /* ---------- 4 · network: 34 readers answered back ---------- */
+ const ST={ch:'Challenges or qualifies',af:'Mainly affirms',ex:'Extends without disagreeing',ot:'Other'},SHORT={ch:'Challenge',af:'Affirm',ex:'Extend',ot:'Other'};
+ const PT=[
+  {id:'ben',a:-67.5,t:["Benjamin's","silence"],n:"Benjamin's silence",q:[['C05','He’s just certain. And I find that certainty harder to forgive than fear would be.'],['C10','Silence fails to stop the pigs. Loyalty is what feeds them.']],w:'Readers treated my closing question as something to be answered: certainty (C05), loyalty (C10), and the old warning about staying silent until nobody is left (C01).'},
+  {id:'fool',a:-22.5,t:['“Too easily','fooled”'],n:'“Too easily fooled”',scale:1,q:[['C09','Count the dogs… I read them as having learned what disagreement costs.']],w:'My least confident paragraph drew the most fire. Once it was public, a hesitation was read as a claim. Fear, hunger and exhaustion do most of the work.'},
+  {id:'lit',a:22.5,t:['Literacy &','the slogan'],n:'Literacy & the slogan',q:[['C31','Napoleon is the most committed educator on the farm.'],['C16','If Squealer had said that, we’d call it propaganda.']],w:'Literacy isn’t simply lacking. It is handed out selectively, by whoever benefits.'},
+  {id:'clo',a:67.5,t:["Clover's",'song'],n:"Clover's song",q:[['C15','I just can’t decide whether a melody with no argument attached is a comfort or a measure of the loss.']],w:'The song is borrowed from Major and banned the same evening. It holds her grief, but only briefly.'},
+  {id:'rec',a:112.5,t:['Records &','memory'],n:'Records & memory',q:[['C06','The animals aren’t short of text. They’re short of control over it.'],['C22','That’s scarier than an edit button.']],w:'The idea that travelled — and the one readers improved. Not a missing record, but who controls the writing.'},
+  {id:'bey',a:157.5,t:['Beyond the','history lesson'],n:'Beyond the history lesson',q:[['C17','The Russian costume fits, but the body underneath could belong to almost anyone who has ever managed other people’s labour.']],w:'Keep the history lesson: Pilkington is taking notes, because the humans ran the same arrangement all along.'},
+  {id:'none',a:-157.5,t:['No specific','claim'],n:'No specific claim',q:[['C13','I can see people around me, or the people of the world… in this book.']],w:'Praise and general comments: taking part without engaging a particular claim.'},
+  {id:'sty',a:-112.5,t:["Orwell's",'style'],n:"Orwell's style",q:[['C08','In each case the grammar removes the agent. Nobody takes the milk, nobody repaints the wall; things simply turn out to be so.']],w:'“The milk had disappeared.” The flat style hides who did it, and puts our own cleverness as readers under suspicion.'}];
+ /* [id, name, stance, points, quote] (stances and links from my Response Log and Table 1) */
+ const CM=[
+  ['C02','Yash Gaur','ch','rec ben fool sty','There’s a difference between actively controlling people and being too passive or cynical to stop what’s happening.'],
+  ['C04','Om Srivastava','ch','lit clo fool ben','Sometimes they choose comfort, routine, or obedience over confronting an uncomfortable truth.'],
+  ['C05','NF Anbolir','ch','ben','He isn’t a coward, he fought at the Cowshed. He’s just certain.'],
+  ['C06','Aryansh Bisht','ch','rec','The animals aren’t short of text. They’re short of control over it.'],
+  ['C09','Raktim Dutta','ch','fool','Count the dogs… I read them as having learned what disagreement costs.'],
+  ['C10','Ashmit Verma','ch','ben','Benjamin knows and does nothing. But Boxer does everything and knows nothing, and it’s his back the windmill is built on.'],
+  ['C11','Vaishnavi','ch','ben fool','Their compliance isn’t born out of simple gullibility, but out of a calculated, manufactured exhaustion that paralyzes their ability to resist.'],
+  ['C15','Saket Prayas','ch','clo','Whatever the song was holding, it held it very briefly.'],
+  ['C16','Lukesh Sahu','ch','lit','Nobody ever wants to say this about Snowball, but he invented the slogan.'],
+  ['C17','Kumar Manishankar','ch','bey','The Russian costume fits, but the body underneath could belong to almost anyone who has ever managed other people’s labour.'],
+  ['C22','Sahil Kumar Singh','ch','rec','It’s less about deleting the record and more about what happens once nobody remembers there was a different one.'],
+  ['C28','Barathi','ch','rec lit fool','This somewhat underplays the role of systemic terror, exhaustion, and state violence.'],
+  ['C30','Garima Mittal','ch','sty fool clo','I don’t think Orwell meant to portray them as gullible, but rather to show the terrifying psychological weight of gaslighting.'],
+  ['C31','Kushagra Tiwari','ch','lit','Napoleon is the most committed educator on the farm.'],
+  ['C34','Ishi','ch','lit rec ben fool','Their compliance stems from fear and trauma, not just lack of intelligence.'],
+  ['C03','Jerrick Priyan','af','rec ben','The ending question about when staying silent becomes a form of helping those in power is probably the strongest part.'],
+  ['C12','Shubhankari','af','rec bey','\u2026isn\u2019t just a historical lesson on the Russian Revolution, but a timeless warning about misinformation\u2026'],
+  ['C14','Anujya Tripathi','af','rec ben clo','The point about Clover singing “Beasts of England” as quiet grief was well observed.'],
+  ['C19','Anshuman Gupta','af','rec','The danger of those in power controlling the records we all rely on.'],
+  ['C20','Nishtha Agrawal','af','rec','When the truth can be rewritten or erased, people begin to doubt their own memories.'],
+  ['C21','Mohammad Faizan','af','none','I am excited to read this book when I read your review.'],
+  ['C24','Antareep Das','af','rec','The transformation of the commandments is still the ultimate masterclass in how language is weaponized by those in power.'],
+  ['C25','Shraddha','af','ben','The point about recognizing justice and acting on it… forces us to question our own actions.'],
+  ['C26','Yaseen Nadaf','af','none','I really appreciate the way you pondered over every incident.'],
+  ['C27','Guhasree','af','rec','Especially your take on how the animals slowly start doubting their own memories.'],
+  ['C29','Anjali Bagga','af','rec ben','Your point about controlling records and making people doubt their own memories—it adds such a chilling dimension to the story.'],
+  ['C32','Rishabh Tiwari','af','none','Crisp and clear review… very minimal spoilers.'],
+  ['C33','Saunak Ghosh','af','lit rec ben clo','The focus on literacy and record-keeping, rather than the usual Stalin parallels, gives the reading a fresh angle.'],
+  ['C07','Manuj Khurana','ex','rec','Doubt keeps them quiet. But something else keeps them working.'],
+  ['C08','Anshuman Gupta','ex','sty ben','The gap between the animals’ relief and our understanding… puts our own cleverness under quiet suspicion.'],
+  ['C18','Anant','ex','rec','The habit of believing whoever stands at the front was already there for the pigs to use.'],
+  ['C01','Vaibhav S','ot','ben','First they came in for the dissent, I said nothing… and finally when they came for me, there were no one.'],
+  ['C13','Abhinav','ot','none','I can see people around me, or the people of the world… in this book.'],
+  ['C23','Nitesh Khedar','ot','none','A simple but powerful book… makes you think about society, equality, and freedom.']];
+ const STX={ch:'Readers who disagreed almost never set an opinion against mine. They went back to the book, so every challenge pointed to a scene anyone could check.',
+  af:'Affirmation worked like a vote on which sentence stood for the whole review, and almost all of them picked the memory and records idea.',
+  ex:'New evidence that pushed my reading further: Moses and comfort (C07), the grammar of the narration (C08), Major’s speech on the very first night (C18).',
+  ot:'An outside saying (C01), a personal reading (C13) and a general comment on the book (C23): taking part without replying to a claim.'};
+ const ECHO=[['C28','C34','“systemic terror”'],['C19','C22','the edited-posts comparison']];
+ const C=320,RP=150,RC=272,rad=d=>d*Math.PI/180,xy=(r,d)=>[C+r*Math.cos(rad(d)),C+r*Math.sin(rad(d))];
+ PT.forEach(p=>{[p.x,p.y]=xy(RP,p.a)});
+ const cm=CM.map(([id,nm,st,ps,qt],i)=>{const a=-84+i*360/34,[x,y]=xy(RC,a),[lx,ly]=xy(RC+20,a);return{id,nm,st,ps:ps.split(' '),qt,a,x,y,lx,ly}});
+ const byId=Object.fromEntries(cm.map(c=>[c.id,c]));
+ PT.forEach(p=>{p.cs=cm.filter(c=>c.ps.includes(p.id));p.k={ch:0,af:0,ex:0,ot:0};p.cs.forEach(c=>p.k[c.st]++)});
+ const f1=v=>v.toFixed(1),shape=(st,x,y)=>st=='ch'?`<rect class="s ch" x="${f1(x-6.5)}" y="${f1(y-6.5)}" width="13" height="13"/>`:st=='af'?`<circle class="s af" cx="${f1(x)}" cy="${f1(y)}" r="7"/>`:st=='ex'?`<path class="s ex" d="M${f1(x)},${f1(y-8.5)}L${f1(x+8)},${f1(y+6)}L${f1(x-8)},${f1(y+6)}Z"/>`:`<path class="s ot" d="M${f1(x)},${f1(y-8.5)}L${f1(x+8.5)},${f1(y)}L${f1(x)},${f1(y+8.5)}L${f1(x-8.5)},${f1(y)}Z"/>`;
+ let ei=0;const line=(x1,y1,x2,y2,cls,data)=>`<line class="${cls}" ${data} x1="${f1(x1)}" y1="${f1(y1)}" x2="${f1(x2)}" y2="${f1(y2)}" style="--len:${Math.ceil(Math.hypot(x2-x1,y2-y1))};--dl:${(.35+(ei++)*.012).toFixed(3)}s"/>`;
+ const svg=`<svg class="nw-svg" viewBox="-34 -26 708 692" role="img" aria-label="Network of 34 comments linked to the points in my review">
+  ${PT.map(p=>line(C,C,p.x,p.y,'ec','data-p="'+p.id+'"')).join('')}
+  ${cm.flatMap(c=>c.ps.map(pid=>{const p=PT.find(x=>x.id==pid);return line(c.x,c.y,p.x,p.y,'e '+c.st,`data-c="${c.id}" data-p="${pid}"`)})).join('')}
+  ${ECHO.map(([a,b])=>{const A=byId[a],B=byId[b],m=(A.a+B.a)/2,[cx,cy]=xy(RC+70,m);return `<path class="dash" data-c="${a} ${b}" d="M${f1(A.x)},${f1(A.y)}Q${f1(cx)},${f1(cy)} ${f1(B.x)},${f1(B.y)}"/>`}).join('')}
+  <g class="core" data-act="all" tabindex="0" role="button" aria-label="Overview"><circle cx="${C}" cy="${C}" r="48"/><text x="${C}" y="${C-4}">My</text><text x="${C}" y="${C+17}">review</text></g>
+  ${PT.map(p=>`<g class="pn" data-p="${p.id}" tabindex="0" role="button" aria-label="${p.n}, ${p.cs.length} comments"><circle cx="${f1(p.x)}" cy="${f1(p.y)}" r="46"/><text x="${f1(p.x)}" y="${f1(p.y-9)}">${p.t[0]}</text><text x="${f1(p.x)}" y="${f1(p.y+7)}">${p.t[1]}</text><text class="n" x="${f1(p.x)}" y="${f1(p.y+25)}">(${p.cs.length})</text></g>`).join('')}
+  ${cm.map((c,i)=>`<g class="cn" data-c="${c.id}" tabindex="0" role="button" aria-label="${c.id} ${c.nm}"><circle class="hit" cx="${f1(c.x)}" cy="${f1(c.y)}" r="16" fill="transparent"/><g class="pop" style="--dl:${(.9+i*.03).toFixed(2)}s">${shape(c.st,c.x,c.y)}<text x="${f1(c.lx)}" y="${f1(c.ly+4.5)}" text-anchor="${Math.cos(rad(c.a))>.2?'start':Math.cos(rad(c.a))<-.2?'end':'middle'}">${c.id}</text></g></g>`).join('')}
+ </svg>`;
+ const n={ch:0,af:0,ex:0,ot:0};cm.forEach(c=>n[c.st]++);
+ const s4=poster(`<div class="sj nw rv" style="--d:.15s">
+  <div class="nw-corner"></div>
+  <div class="nw-k"><b>Speaker 01</b>Sayanjeet · reader response · posted 21 Sept 2026</div>
+  <h2 class="nw-h"><span>34 readers</span> answered back</h2><div class="ag-bars"><i></i><i></i></div>
+  <div class="nw-body">
+   <div class="nw-fig" data-noswipe>
+    <div class="nw-chips" role="group" aria-label="Filter by stance"><button data-f="all" aria-pressed="true">All 34</button>${Object.keys(ST).map(k=>`<button data-f="${k}" aria-pressed="false"><i class="sh-${k}"></i>${SHORT[k]} ${n[k]}</button>`).join('')}</div>
+    ${svg}
+   </div>
+   <aside class="nw-panel" aria-live="polite"></aside>
+  </div>
+  <div class="nw-foot">My review worked less as a verdict than as a <span>starting position</span> — the parts I was least sure of gave other people the most to do.</div>
+ </div>`,{steps:2,enter:()=>{flt='all';chips()},show:k=>k==1?pick('p','rec'):k==2?pick('p','fool'):pick()});
+ const sv=q(s4,'.nw-svg'),pan=q(s4,'.nw-panel');
+ const stack=k=>{const t=k.ch+k.af+k.ex+k.ot;return `<div class="nw-stack">${['ch','ex','af','ot'].map(s=>k[s]?`<i class="${s}" style="--w:${k[s]/t*100}%"></i>`:'').join('')}</div><div class="nw-leg">${['ch','ex','af','ot'].map(s=>k[s]?`<span><i class="sh-${s}"></i>${SHORT[s]} ${k[s]}</span>`:'').join('')}</div>`};
+ const qb=(id,t)=>{const c=byId[id];return `<blockquote class="nw-q ${c.st}"><b>${id} · ${c.nm}</b>“${t}”</blockquote>`};
+ const SCALE=`<svg class="nw-scale" viewBox="0 0 300 150" aria-label="The balance tips towards fear, hunger and exhaustion">
+  <path d="M150 34 L150 132 M118 138 H182" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round"/><path d="M140 140 L150 120 L160 140 Z" fill="#1E1E1E"/>
+  <g class="beam" style="transform-origin:150px 34px"><rect x="40" y="31" width="220" height="6" rx="3" fill="#1E1E1E"/></g><circle cx="150" cy="34" r="6" fill="#B31E1E"/>
+  <g class="pan pl"><path d="M40 34 L18 84 M40 34 L62 84" stroke="#5E656B" stroke-width="1.2"/><path d="M12 84 H68 Q62 98 40 98 Q18 98 12 84Z" fill="#5E656B"/><rect x="22" y="71" width="15" height="13" fill="#1E1E1E"/><text class="wt" x="29.5" y="80">ME</text><rect x="40" y="71" width="15" height="13" fill="#B31E1E"/><text class="wt" x="47.5" y="80">C04</text><text x="40" y="112">IGNORANCE</text></g>
+  <g class="pan pr"><path d="M260 34 L238 84 M260 34 L282 84" stroke="#5E656B" stroke-width="1.2"/><path d="M232 84 H288 Q282 98 260 98 Q238 98 232 84Z" fill="#5E656B"/>${['C02','C09','C11','C28','C30','C34'].map((id,i)=>`<rect x="${236+(i%3)*16}" y="${(i<3?71:57)}" width="15" height="13" fill="#B31E1E"/><text class="wt" x="${243.5+(i%3)*16}" y="${(i<3?80:66)}">${id}</text>`).join('')}<text x="260" y="112">FEAR · HUNGER</text><text x="260" y="123">EXHAUSTION</text></g>
+ </svg>`;
+ function tilt(on){const t=on?14:0,r=t*Math.PI/180,dx=110*(1-Math.cos(r)),dy=110*Math.sin(r);const b=q(s4,'.nw-scale .beam');if(!b)return;b.style.transform=`rotate(${t}deg)`;q(s4,'.nw-scale .pl').style.transform=`translate(${dx}px,${-dy}px)`;q(s4,'.nw-scale .pr').style.transform=`translate(${-dx}px,${dy}px)`}
+ function light(f){sv.classList.toggle('f',!!f);qa(sv,'.hl').forEach(e=>e.classList.remove('hl'));if(f)qa(sv,'line,path.dash,.cn,.pn').forEach(e=>{if(f(e))e.classList.add('hl')})}
+ let sel=null,flt='all';
+ function pick(kind,id){sel=kind?[kind,id]:null;qa(sv,'.sel').forEach(e=>e.classList.remove('sel'));
+  if(kind=='p'){const p=PT.find(x=>x.id==id);q(sv,`.pn[data-p="${id}"]`).classList.add('sel');
+   light(e=>e.dataset.p==id||(e.dataset.c&&p.cs.some(c=>e.dataset.c.split(' ').includes(c.id))&&!e.dataset.p)||(e.dataset.c&&e.dataset.p==id));
+   pan.innerHTML=`<div><div class="k">A point in my review</div><h3>${p.n}<small>${p.cs.length} comments</small></h3>${stack(p.k)}${p.scale?SCALE:''}${p.q.map(x=>qb(x[0],x[1])).join('')}<p class="nw-w"><b>What it did to my reading</b>${p.w}</p></div>`;
+   if(p.scale){tilt(false);requestAnimationFrame(()=>requestAnimationFrame(()=>tilt(true)))}}
+  else if(kind=='c'){const c=byId[id];q(sv,`.cn[data-c="${id}"]`).classList.add('sel');
+   const ech=ECHO.find(x=>x[0]==id||x[1]==id),mate=ech?(ech[0]==id?ech[1]:ech[0]):null;
+   light(e=>(e.dataset.c||'').split(' ').includes(id)||(e.dataset.p&&c.ps.includes(e.dataset.p)&&!e.dataset.c)||(mate&&e.classList.contains('cn')&&e.dataset.c==mate));
+   pan.innerHTML=`<div><div class="k">${ST[c.st]}</div><h3>${c.id}<small>${c.nm}</small></h3>${qb(id,c.qt)}<div class="nw-tags">${c.ps.map(pid=>`<span>${PT.find(x=>x.id==pid).n}</span>`).join('')}</div>${ech?`<p class="nw-w"><b>Echo, not a reply</b>${ech[0]} and ${ech[1]} share ${ech[2]}, but neither answers the other.</p>`:''}</div>`}
+  else if(flt!='all'){light(e=>{const ids=(e.dataset.c||'').split(' ');return e.classList.contains('pn')||ids.some(i=>byId[i]&&byId[i].st==flt)});
+   pan.innerHTML=`<div><div class="k">Stance</div><h3>${ST[flt]}<small>${n[flt]} comments</small></h3><p>${STX[flt]}</p><div class="nw-tags">${cm.filter(c=>c.st==flt).map(c=>`<span>${c.id}</span>`).join('')}</div><p class="nw-hint">Tap a marker to read the comment</p></div>`}
+  else{light(null);
+   pan.innerHTML=`<div><div class="k">Overview · 34 comments, all classmates</div><h3>A star, not a conversation</h3>${stack(n)}<ul class="nw-find"><li><b>16</b><span>comments took up <i>records &amp; memory</i>: the idea that travelled.</span></li><li><b>7/7</b><span>on “too easily fooled” pushed back: my least confident paragraph drew the most fire.</span></li><li><b>0</b><span>readers replied to each other. Every line runs through my review.</span></li></ul><p class="nw-hint">Tap a point or a reader to explore</p></div>`}}
+ const act=e=>{const g=e.target.closest('.cn,.pn,.core');if(g){if(g.classList.contains('pn'))pick('p',g.dataset.p);else if(g.classList.contains('cn'))pick('c',g.dataset.c);else{flt='all';chips();pick()}}};
+ sv.addEventListener('click',e=>{if(e.target.closest('.cn,.pn,.core'))act(e);else if(sel)pick()});
+ sv.addEventListener('keydown',e=>{if(e.key=='Enter'||e.key==' '){e.preventDefault();e.stopPropagation();act(e)}});
+ function chips(){qa(s4,'.nw-chips button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.f==flt))}
+ qa(s4,'.nw-chips button').forEach(b=>b.onclick=()=>{flt=b.dataset.f;chips();pick()});
+
+ /* ---------- speaker notes (about 70 seconds; [→] = press next) ---------- */
+ SPEECH.sayanjeet=`<div class="lbl">Sayanjeet · opening, about 70 seconds</div>
+  <p><b>1 · Paintbrush.</b> Good morning. We chose <em>Animal Farm</em>, and our title, <em>A Warning in Seven Commandments</em>, comes from my reading of it. We are usually taught it as 1917 in costume: Napoleon is Stalin, Snowball is Trotsky. That’s accurate. [→] But what unsettled me was how easily the animals were talked out of their own memories.</p>
+  <p><b>2 · Who can read.</b> Look at who can read. The pigs read perfectly. Boxer never gets past D. The sheep can’t hold seven rules, [→] so Snowball shrinks them into one slogan, and the farm learns to chant instead of think. And Benjamin reads as well as any pig, and says nothing.</p>
+  <p><b>3 · The record.</b> Then Squealer asks, “Is it written down anywhere?” [→ →] Watch the record change until Snowball’s wounds came from Napoleon’s teeth. Nobody lies outright. The pigs just control the record.</p>
+  <p><b>4 · Readers.</b> Thirty-four classmates answered my review, and fifteen pushed back. [→] One sharpened my point: the animals aren’t short of text, they’re short of control over it. [→] And they aren’t just fooled. They’re frightened, hungry and exhausted. So read it a second time: for the Commandments, not the Revolution.</p>`;
+}
+</script>
+<script>
 /* ===== EDIT THE TEAM'S OPINIONS HERE ===== */
+/* Speaker 01, Sayanjeet, opens the presentation: see sayanjeetSlides() above. */
+const OPENER='Sayanjeet';
 const people=[
  {n:'Rishabh',t:'Propaganda works because language can be rewritten.',o:'The most frightening thing in Animal Farm is not the violence but Squealer rewriting the Commandments overnight. Once the animals cannot trust their own memory, the pigs no longer need to argue; they only need to repeat.'},
  {n:'Yash',t:'A revolution is only as good as what follows it.',o:'Old Major\u2019s dream was sincere, and that is the tragedy. Orwell shows that an ideal without safeguards is a gift to whoever is clever enough to inherit it.'},
  {n:'Vaibhav',t:'Equality dies by small exceptions.',o:'Nobody abolishes equality in a day. A little milk, a few apples, a bed with sheets: each change sounds reasonable, until \u201Cequal\u201D quietly comes to mean \u201Csome are more equal than others\u201D.'},
  {n:'Shaunak',t:'Fear is a system of government.',o:'Napoleon\u2019s dogs show that power needs force to hold, and the animals\u2019 silence shows how quickly fear teaches obedience. A leader who cannot be questioned will eventually stop being a servant of the people.'},
- {n:'Sayanjeet',t:'A scapegoat is the cheapest policy.',o:'Snowball is blamed for every broken window and failed harvest. A regime that always has an enemy never has to answer for its own failures, which is why this device still feels so modern.'},
  {n:'Raktim',t:'The most loyal are the first to be sacrificed.',o:'Boxer gives everything and is sold for whisky money. For me his fate is the cruellest part: devotion without questioning is exactly what an unjust system feeds on.'}
+];
+/* ===== SOURCES (shown on the last slide) =====
+   Add a credit here for every image you used, e.g. the illustrations in Yash's slides. */
+const REFS=[
+ 'George Orwell, <i>Animal Farm: A Fairy Story</i>. London: Secker &amp; Warburg, 1945. All quotations on these slides are from the novel; chapters are cited where it matters.',
+ 'Sayanjeet, \u201CAnimal Farm \u2014 George Orwell\u201D (book review, posted 21 September 2026), and the 34 classmate comments on it (C01\u2013C34), as analysed in Sayanjeet’s Response Log, Network Analysis and Critical Reflection. Comment quotations keep the commenters\u2019 wording.',
+ '3D countryside built with three.js r128 (MIT licence). Typefaces from Google Fonts.'
 ];
 const cards=[['Napoleon','The Dictator','Stalin','Seizes power with trained dogs and rules by fear.'],['Snowball','The Idealist','Trotsky','Planner of the windmill, then exiled and blamed for everything.'],['Boxer','The Labourer','The working class','Believes in hard work and trust. Is betrayed in the end.'],['Squealer','The Voice','State propaganda','Turns every lie into a statistic and every defeat into a victory.']];
 const S=[];const deck=document.getElementById('deck');
@@ -127,7 +613,8 @@ const SPEECH={};document.body.insertAdjacentHTML('beforeend','<div id="lb"><img 
 /* add(html, mood, {enter, steps, show}) - enter() runs each time the slide is shown;
    steps/show(n) give a slide click-through builds driven by → / PageDown before moving on */
 const add=(h,mood,o={})=>{const s=document.createElement('section');s.className='slide';s.innerHTML=h;deck.appendChild(s);S.push({s,mood,step:0,...o});return s};
-add(`<div class="lbl rv" style="--d:.3s">An English presentation</div><h1 class="rv" style="--d:.6s">ANIMAL FARM</h1><div class="rule"></div><p class="sub rv" style="--d:1s"><em class="q">A Fairy Story</em> that became a warning.</p>`,0);
+add(`<div class="lbl rv" style="--d:.3s">An English presentation</div><h1 class="rv" style="--d:.6s">ANIMAL FARM</h1><div class="rule"></div><p class="sub rv" style="--d:1s"><em class="q">A Fairy Story</em> that became a warning.</p><p class="lbl rv members" style="--d:1.4s">${[OPENER,...people.map(p=>p.n)].join(' \u00B7 ')}</p>`,0);
+sayanjeetSlides(add,setStep,SPEECH);
 add(`<div class="lbl rv">Setting the scene</div><h2 class="rv" style="--d:.2s">One Farm. One Warning.</h2><div class="tl"><div class="glass rv" style="--d:.4s"><div class="lbl">1945</div><p>George Orwell publishes Animal Farm as the Second World War comes to an end.</p></div><div class="glass rv" style="--d:.6s"><div class="lbl">Allegory</div><p>Every animal, event and slogan stands for something in the Russian Revolution.</p></div><div class="glass rv" style="--d:.8s"><div class="lbl">Satire</div><p>A simple farmyard fable that exposes how power corrupts and ideals are betrayed.</p></div></div>`,0);
 add(`<div class="lbl rv">Chapter I</div><h2 class="rv" style="--d:.2s">Old Major\u2019s Dream</h2><div class="glass sub rv" style="--d:.4s;min-height:9.5em;width:min(640px,100%)"><em class="q" id="tw"></em></div><p class="lbl rv" style="--d:.8s">A utopia built on one idea: nobody should live off another\u2019s labour.</p>`,.08,{enter:type});
 add(`<div class="lbl rv">Chapters II\u2013IV</div><h2 class="rv" style="--d:.2s">The Rebellion</h2><div class="tl"><div class="glass rv" style="--d:.4s"><div class="lbl">Neglect</div><p>Mr Jones drinks, stops caring, and forgets to feed the animals.</p></div><div class="glass rv" style="--d:.7s"><div class="lbl">Revolt</div><p>Starving, the animals drive Jones and his men off the farm.</p></div><div class="glass rv" style="--d:1s"><div class="lbl">New order</div><p>Manor Farm becomes Animal Farm and the Seven Commandments go up on the barn wall.</p></div></div>`,0);
@@ -148,9 +635,10 @@ function yashSlides(){
  const lb=document.getElementById('lb');
  s1.querySelectorAll('.sc').forEach(d=>{d.onmousemove=e=>{const r=d.getBoundingClientRect();d.style.transform=`rotateY(${((e.clientX-r.x)/r.width-.5)*16}deg) rotateX(${-((e.clientY-r.y)/r.height-.5)*16}deg)`};d.onmouseleave=()=>d.style.transform='';d.onclick=()=>{lb.firstElementChild.src=d.querySelector('img').src;lb.classList.add('on')}});
 }
-people.forEach((p,i)=>p.n=='Yash'?yashSlides():add(`<div class="op"><div class="no rv">0${i+1}</div><div><div class="lbl rv" style="--d:.2s">${p.n}\u2019s opinion</div><h2 class="rv" style="--d:.4s;margin:.6rem 0 1rem">${p.t}</h2><div class="rule" style="margin-bottom:1rem"></div><p class="sub rv" style="--d:.8s;margin:0">${p.o}</p></div></div>`,.65+i*.06));
+people.forEach((p,i)=>p.n=='Yash'?yashSlides():add(`<div class="op"><div class="no rv">${String(i+2).padStart(2,'0')}</div><div><div class="lbl rv" style="--d:.2s">${p.n}\u2019s opinion</div><h2 class="rv" style="--d:.4s;margin:.6rem 0 1rem">${p.t}</h2><div class="rule" style="margin-bottom:1rem"></div><p class="sub rv" style="--d:.8s;margin:0">${p.o}</p></div></div>`,.65+i*.06));
 add(`<div class="lbl rv">The final scene</div><h2 class="rv" style="--d:.2s">From Pig to Man</h2><div class="ringw rv" style="--d:.4s"><div id="coin"><div>PIG</div><div class="m">MAN</div></div></div><input type="range" id="mo" min="0" max="100" value="0" class="rv" style="--d:.6s"><p class="sub rv" style="--d:.8s" id="ml">Watching through the farmhouse window, the animals can no longer tell which is which.</p>`,0);
 add(`<div class="lbl rv">Conclusion</div><h2 class="rv" style="--d:.3s;max-width:800px"><em class="q">\u201CAll animals are equal, but some animals are more equal than others.\u201D</em></h2><div class="rule"></div><p class="sub rv" style="--d:1.2s">Power rewrites the rules. Memory and questions are what keep us free.</p><p class="lbl rv" style="--d:1.6s">Thank you</p>`,1);
+add(`<div class="lbl rv">Sources</div><h2 class="rv" style="--d:.2s">References</h2><div class="glass refs rv" style="--d:.4s"><ol>${REFS.map(r=>`<li>${r}</li>`).join('')}</ol></div><p class="lbl rv members" style="--d:.8s">${[OPENER,...people.map(p=>p.n)].join(' \u00B7 ')}</p>`,1);
 
 S.forEach((o,i)=>o.mood=i/(S.length-1));
 /* ===== navigation ===== */
